@@ -10,23 +10,24 @@ package models;
  */
 public class Doctor extends Person
 {
+    private String hospitalName;
+
+    public Doctor(String hospitalName, String firstName, String lastName, String gender, int age, String houseName, 
+            String communityName, int pinCode, String cityName)
+    {
+        super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
+        this.setHospitalName(hospitalName);
+    }
+
+    public String getHospitalName()
+    {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) 
+    {
+        this.hospitalName = hospitalName;
+    }
     
-    public Doctor(String firstName, String lastName, String gender, int age, String CommunityName, int pinCode, String cityName, String communityList) {
-        super(firstName, lastName, gender, age, CommunityName, pinCode, cityName, communityList);
-    }
-    private int docID;
-
-    public Doctor(int docID, String firstName, String lastName, String gender, int age, String CommunityName, int pinCode, String cityName, String communityList) {
-        super(firstName, lastName, gender, age, CommunityName, pinCode, cityName, communityList);
-        this.docID = docID;
-    }
-
-    public int getDocID() {
-        return docID;
-    }
-
-    public void setDocID(int docID) {
-        this.docID = docID;
-    }
     
 }

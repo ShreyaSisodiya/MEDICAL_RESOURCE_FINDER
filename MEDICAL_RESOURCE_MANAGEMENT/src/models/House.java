@@ -14,7 +14,7 @@ public class House extends Community
 
     public House(String houseName, String communityName, int pinCode, String cityName) {
         super(communityName, pinCode, cityName);
-        this.houseName = houseName;
+        this.setHouseName(houseName);
     }
 
     public String getHouseName() {
