@@ -25,12 +25,15 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         // TODO code application logic here
 
 
-        User Shreya = new User("Shreya", "admin", "SystemAdmin");
-        User Krishnna = new User("Krishnna", "patient","Patient" );
+        User Shreya = new User("Shreya", "admin", "System Admin");
+        User Charlie = new User("Charlie", "patient","Patient" );
+        User Nupoor = new User("Nupoor", "admin", "Community Admin");
+        User Grey = new User("Grey", "doctor", "Doctor");
         
-        
-        userMap.put(Krishnna.getUserName(), Krishnna);
+        userMap.put(Charlie.getUserName(), Charlie);
         userMap.put(Shreya.getUserName(), Shreya);
+        userMap.put(Nupoor.getUserName(), Nupoor);
+        userMap.put(Grey.getUserName(), Grey);
         
         LoginForm logForm = new LoginForm();
         logForm.show();

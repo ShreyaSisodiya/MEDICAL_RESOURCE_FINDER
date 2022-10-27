@@ -130,8 +130,30 @@ public class LoginForm extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this, "Login Successful");
             
-                if(userMap.get(uName).getUserType().equals("SystemAdmin"))
+                if(userMap.get(uName).getUserType().equals("System Admin"))
+                {
                     this.hide();
+                    ViewSystemAdmin vsa = new ViewSystemAdmin();
+                    vsa.show();
+                }
+                else if(userMap.get(uName).getUserType().equals("Patient"))
+                {
+                    this.hide();
+                    ViewPatient vp = new ViewPatient();
+                    vp.show();
+                }
+                else if (userMap.get(uName).getUserType().equals("Doctor"))
+                {
+                    this.hide();
+                    ViewDoctor vd = new ViewDoctor();
+                    vd.show();
+                }
+                else if(userMap.get(uName).getUserType().equals("Community Admin"))
+                {
+                    this.hide();
+                    CommunityAdminForm caf = new CommunityAdminForm();
+                    this.show();
+                }
         }
         else
         {
