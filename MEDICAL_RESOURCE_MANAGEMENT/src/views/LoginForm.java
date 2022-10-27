@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
+import javax.swing.JOptionPane;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.userMap;
 
 /**
  *
@@ -121,6 +123,20 @@ public class LoginForm extends javax.swing.JFrame {
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
         
+        String uName = textUserName.getText();
+        String pwd = passwordField.getText();
+        
+        if(userMap.containsKey(uName) && userMap.get(uName).getUserPassword().equals(pwd))
+        {
+            JOptionPane.showMessageDialog(this, "Login Successful");
+            
+                if(userMap.get(uName).getUserType().equals("SystemAdmin"))
+                    this.hide();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Enter Valid Details");
+        }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     /**

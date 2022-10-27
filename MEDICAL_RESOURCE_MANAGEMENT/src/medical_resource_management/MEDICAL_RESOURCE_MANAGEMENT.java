@@ -7,6 +7,7 @@ package medical_resource_management;
 import java.util.HashMap;
 
 import models.User;
+import views.LoginForm;
 
 /**
  *
@@ -18,6 +19,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
     /**
      * @param args the command line arguments
      */
+    public static HashMap<String, User> userMap = new HashMap<String, User>();
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -26,8 +28,12 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         User Shreya = new User("Shreya", "admin", "SystemAdmin");
         User Krishnna = new User("Krishnna", "patient","Patient" );
         
-        HashMap<String, User> userMap = new HashMap<>();
+        
         userMap.put(Krishnna.getUserName(), Krishnna);
+        userMap.put(Shreya.getUserName(), Shreya);
+        
+        LoginForm logForm = new LoginForm();
+        logForm.show();
      }
     
 }
