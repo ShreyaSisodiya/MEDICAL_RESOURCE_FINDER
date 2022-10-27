@@ -28,42 +28,56 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        buttonCreatePatient = new javax.swing.JButton();
-        buttonCreateDoctor = new javax.swing.JButton();
-        buttonCreateHospital = new javax.swing.JButton();
-        buttonCreateEncounter = new javax.swing.JButton();
+        buttonManageCommunities = new javax.swing.JButton();
+        buttonManageUsers = new javax.swing.JButton();
+        buttonManageHospitals = new javax.swing.JButton();
+        buttonManageCities = new javax.swing.JButton();
+        buttonSystemLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel1.setText("SYSTEM ADMIN");
 
-        buttonCreatePatient.setText("CREATE PATIENT");
+        buttonManageCommunities.setText("MANAGE COMMUNITIES");
+        buttonManageCommunities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageCommunitiesActionPerformed(evt);
+            }
+        });
 
-        buttonCreateDoctor.setText("CREATE DOCTOR");
+        buttonManageUsers.setText("MANAGE USERS");
 
-        buttonCreateHospital.setText("CREATE HOSPITAL");
+        buttonManageHospitals.setText("MANAGE HOSPITALS");
 
-        buttonCreateEncounter.setText("CREATE ENCOUNTER");
+        buttonManageCities.setText("MANAGE CITIES");
+
+        buttonSystemLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        buttonSystemLogOut.setText("LOG OUT");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(136, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonManageHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageCommunities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageCities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(142, 142, 142))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(260, 260, 260))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonCreatePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonCreateDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonCreateEncounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(142, 142, 142))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(260, 260, 260))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(buttonSystemLogOut)
+                        .addGap(73, 73, 73))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,13 +86,15 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(87, 87, 87)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCreatePatient)
-                    .addComponent(buttonCreateDoctor))
+                    .addComponent(buttonManageCommunities)
+                    .addComponent(buttonManageUsers))
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCreateHospital)
-                    .addComponent(buttonCreateEncounter))
-                .addContainerGap(160, Short.MAX_VALUE))
+                    .addComponent(buttonManageHospitals)
+                    .addComponent(buttonManageCities))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(buttonSystemLogOut)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -94,6 +110,10 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonManageCommunitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageCommunitiesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonManageCommunitiesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,10 +151,11 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCreateDoctor;
-    private javax.swing.JButton buttonCreateEncounter;
-    private javax.swing.JButton buttonCreateHospital;
-    private javax.swing.JButton buttonCreatePatient;
+    private javax.swing.JButton buttonManageCities;
+    private javax.swing.JButton buttonManageCommunities;
+    private javax.swing.JButton buttonManageHospitals;
+    private javax.swing.JButton buttonManageUsers;
+    private javax.swing.JButton buttonSystemLogOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

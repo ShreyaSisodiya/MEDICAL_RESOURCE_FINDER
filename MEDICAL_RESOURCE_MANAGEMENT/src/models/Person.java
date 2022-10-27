@@ -8,6 +8,11 @@ package models;
  *
  * @author shreyasisodiya
  */
-public class Person {
+public class Person extends House
+{
+    private String firstName;
+    private String lastName;
+    private String gender;
+    private int age;
     
 }

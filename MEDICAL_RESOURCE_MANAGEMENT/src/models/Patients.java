@@ -8,7 +8,7 @@ package models;
  *
  * @author shreyasisodiya
  */
-public class Encounter 
+class Patients 
 {
     
 }

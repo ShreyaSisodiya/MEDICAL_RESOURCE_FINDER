@@ -38,23 +38,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="140" max="32767" attributes="0"/>
+                  <EmptySpace pref="136" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="buttonCreateHospital" max="32767" attributes="0"/>
-                      <Component id="buttonCreatePatient" max="32767" attributes="0"/>
+                      <Component id="buttonManageHospitals" max="32767" attributes="0"/>
+                      <Component id="buttonManageCommunities" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="132" max="32767" attributes="0"/>
+                  <EmptySpace pref="134" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="buttonCreateDoctor" max="32767" attributes="0"/>
-                      <Component id="buttonCreateEncounter" max="32767" attributes="0"/>
+                      <Component id="buttonManageUsers" max="32767" attributes="0"/>
+                      <Component id="buttonManageCities" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="buttonSystemLogOut" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -65,15 +73,17 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonCreatePatient" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonCreateDoctor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonManageCommunities" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonManageUsers" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonCreateHospital" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonCreateEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonManageHospitals" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonManageCities" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="160" max="32767" attributes="0"/>
+                  <EmptySpace pref="98" max="32767" attributes="0"/>
+                  <Component id="buttonSystemLogOut" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,24 +97,35 @@
             <Property name="text" type="java.lang.String" value="SYSTEM ADMIN"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCreatePatient">
+        <Component class="javax.swing.JButton" name="buttonManageCommunities">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CREATE PATIENT"/>
+            <Property name="text" type="java.lang.String" value="MANAGE COMMUNITIES"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonManageCommunitiesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonManageUsers">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MANAGE USERS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCreateDoctor">
+        <Component class="javax.swing.JButton" name="buttonManageHospitals">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CREATE DOCTOR"/>
+            <Property name="text" type="java.lang.String" value="MANAGE HOSPITALS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCreateHospital">
+        <Component class="javax.swing.JButton" name="buttonManageCities">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CREATE HOSPITAL"/>
+            <Property name="text" type="java.lang.String" value="MANAGE CITIES"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCreateEncounter">
+        <Component class="javax.swing.JButton" name="buttonSystemLogOut">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CREATE ENCOUNTER"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Helvetica Neue" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="LOG OUT"/>
           </Properties>
         </Component>
       </SubComponents>
