@@ -8,13 +8,43 @@ package models;
  *
  * @author shreyasisodiya
  */
-public class CommunityAdmin extends Person
+public class CommunityAdmin extends Community
 {   
+    private String userName;
+    private String commName;
+    private String commGender;
 
-    public CommunityAdmin(String firstName, String lastName, String gender, int age, String houseName, 
-            String communityName, int pinCode, String cityName)
-    {
-        super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
+    public CommunityAdmin(String userName, String commName, String commGender, String communityName, int pinCode, String cityName) {
+        super(communityName, pinCode, cityName);
+        this.setUserName(userName);
+        this.setCommName(commName);
+        this.setCommGender(commGender);
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getCommName() {
+        return commName;
+    }
+
+    public void setCommName(String commName) {
+        this.commName = commName;
+    }
+
+    public String getCommGender() {
+        return commGender;
+    }
+
+    public void setCommGender(String commGender) {
+        this.commGender = commGender;
+    }
+   
+    
     
 }

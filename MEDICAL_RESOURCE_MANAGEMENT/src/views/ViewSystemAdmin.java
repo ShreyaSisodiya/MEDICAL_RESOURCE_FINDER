@@ -47,6 +47,11 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         });
 
         buttonManageUsers.setText("MANAGE USERS");
+        buttonManageUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageUsersActionPerformed(evt);
+            }
+        });
 
         buttonManageHospitals.setText("MANAGE HOSPITALS");
 
@@ -54,6 +59,11 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
 
         buttonSystemLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         buttonSystemLogOut.setText("LOG OUT");
+        buttonSystemLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSystemLogOutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,6 +124,17 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
     private void buttonManageCommunitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageCommunitiesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonManageCommunitiesActionPerformed
+
+    private void buttonSystemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSystemLogOutActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        LoginForm logForm = new LoginForm();
+        logForm.show();
+    }//GEN-LAST:event_buttonSystemLogOutActionPerformed
+
+    private void buttonManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageUsersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonManageUsersActionPerformed
 
     /**
      * @param args the command line arguments

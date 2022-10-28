@@ -13,7 +13,8 @@ public class Doctor extends Person
     private String hospitalName;
 
     public Doctor(String hospitalName, String firstName, String lastName, String gender, int age, String houseName, 
-            String communityName, int pinCode, String cityName) {
+            String communityName, int pinCode, String cityName) 
+    {
         super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
         this.setHospitalName(hospitalName);
     }

@@ -40,7 +40,7 @@ public class CommunityAdminForm extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton6 = new javax.swing.JButton();
+        buttonCommAdminSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,8 +78,13 @@ public class CommunityAdminForm extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton6.setText("SAVE");
+        buttonCommAdminSave.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        buttonCommAdminSave.setText("SAVE");
+        buttonCommAdminSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCommAdminSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -101,7 +106,7 @@ public class CommunityAdminForm extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(65, 65, 65)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton6)
+                            .addComponent(buttonCommAdminSave)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextField1)
                                 .addComponent(jComboBox1, 0, 211, Short.MAX_VALUE)
@@ -141,7 +146,7 @@ public class CommunityAdminForm extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(jButton6)
+                .addComponent(buttonCommAdminSave)
                 .addGap(50, 50, 50))
         );
 
@@ -172,6 +177,11 @@ public class CommunityAdminForm extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void buttonCommAdminSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommAdminSaveActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buttonCommAdminSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,7 +219,7 @@ public class CommunityAdminForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton buttonCommAdminSave;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

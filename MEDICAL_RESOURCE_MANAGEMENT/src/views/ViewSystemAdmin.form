@@ -109,6 +109,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE USERS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonManageUsersActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonManageHospitals">
           <Properties>
@@ -127,6 +130,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="LOG OUT"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSystemLogOutActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
