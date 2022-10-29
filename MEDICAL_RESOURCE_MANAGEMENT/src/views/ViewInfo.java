@@ -146,13 +146,13 @@ public class ViewInfo extends javax.swing.JFrame {
 
     private void buttonCreateTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateTableActionPerformed
         // TODO add your handling code here:
-        if(labelTableDisplay.getText() == "Manage Cities")
+        if(labelTableDisplay.getText() == "MANAGE CITIES")
         {
             this.hide();
             CreateCity cc = new CreateCity();
             cc.show();
         }
-        else if (labelTableDisplay.getText() == "Manage Hospitals")
+        else if (labelTableDisplay.getText() == "MANAGE HOSPITALS")
         {
             this.hide();
             CreateHospital ch = new CreateHospital();
@@ -162,7 +162,7 @@ public class ViewInfo extends javax.swing.JFrame {
             }
         ch.show();
         }
-        else if(labelTableDisplay.getText() == "Manage Communities")
+        else if(labelTableDisplay.getText() == "MANAGE COMMUNITIES")
         {
             this.hide();
             CreateCommunity cc = new CreateCommunity();
@@ -171,7 +171,7 @@ public class ViewInfo extends javax.swing.JFrame {
         }
             cc.show();
         }
-        else if(labelTableDisplay.getText() == "Patients"){
+        else if(labelTableDisplay.getText() == "MANAGE PATIENTS"){
             this.hide();
             CreatePatient cp = new CreatePatient();
             cp.comboCity.removeAll();
@@ -180,7 +180,7 @@ public class ViewInfo extends javax.swing.JFrame {
             }
         cp.show();
         }
-        else if(labelTableDisplay.getText() == "Doctors"){
+        else if(labelTableDisplay.getText() == "MANAGE DOCTORS"){
             this.hide();
             CreateDoctor cdoc = new CreateDoctor();
             for(int i=0;i<cityList.size();i++) {
@@ -188,7 +188,7 @@ public class ViewInfo extends javax.swing.JFrame {
             }
             cdoc.show();
         }
-        else if(labelTableDisplay.getText() == "Community Admin"){
+        else if(labelTableDisplay.getText() == "COMMUNITY ADMIN"){
             this.hide();
             CommunityAdminForm caf = new CommunityAdminForm();
             for(int i=0;i<cityList.size();i++) {
