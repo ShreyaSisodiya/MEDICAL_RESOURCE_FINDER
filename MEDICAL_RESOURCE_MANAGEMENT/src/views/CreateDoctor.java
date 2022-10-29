@@ -39,9 +39,9 @@ public class CreateDoctor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         textDocUserName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        comboDocCIty = new javax.swing.JComboBox<>();
+        comboCity = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        comboDocComm = new javax.swing.JComboBox<>();
+        comboCommunity = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         comboDocHouse = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -87,19 +87,19 @@ public class CreateDoctor extends javax.swing.JFrame {
 
         jLabel6.setText("CITY");
 
-        comboDocCIty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CITY" }));
-        comboDocCIty.addActionListener(new java.awt.event.ActionListener() {
+        comboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CITY" }));
+        comboCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboDocCItyActionPerformed(evt);
+                comboCityActionPerformed(evt);
             }
         });
 
         jLabel7.setText("COMMUNITY ");
 
-        comboDocComm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMMUNITY", " " }));
-        comboDocComm.addActionListener(new java.awt.event.ActionListener() {
+        comboCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMMUNITY", " " }));
+        comboCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboDocCommActionPerformed(evt);
+                comboCommunityActionPerformed(evt);
             }
         });
 
@@ -161,7 +161,7 @@ public class CreateDoctor extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textDocFName)
                             .addComponent(comboDocGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboDocCIty, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(comboDocHouse)
                             .addComponent(comboDocHospitalName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(82, 82, 82)
@@ -181,7 +181,7 @@ public class CreateDoctor extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(comboDocPin)
-                                    .addComponent(comboDocComm, 0, 135, Short.MAX_VALUE))
+                                    .addComponent(comboCommunity, 0, 135, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -217,9 +217,9 @@ public class CreateDoctor extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboDocCIty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(comboDocComm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,13 +268,13 @@ public class CreateDoctor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textDocUserNameActionPerformed
 
-    private void comboDocCItyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocCItyActionPerformed
+    private void comboCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboDocCItyActionPerformed
+    }//GEN-LAST:event_comboCityActionPerformed
 
-    private void comboDocCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocCommActionPerformed
+    private void comboCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCommunityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboDocCommActionPerformed
+    }//GEN-LAST:event_comboCommunityActionPerformed
 
     private void comboDocHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocHouseActionPerformed
         // TODO add your handling code here:
@@ -369,8 +369,8 @@ public class CreateDoctor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttondocSave;
-    private javax.swing.JComboBox<String> comboDocCIty;
-    private javax.swing.JComboBox<String> comboDocComm;
+    public javax.swing.JComboBox<String> comboCity;
+    private javax.swing.JComboBox<String> comboCommunity;
     private javax.swing.JComboBox<String> comboDocGender;
     private javax.swing.JComboBox<String> comboDocHospitalName;
     private javax.swing.JTextField comboDocHouse;

@@ -4,6 +4,9 @@
  */
 package views;
 
+import javax.swing.table.DefaultTableModel;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
+
 /**
  *
  * @author shreyasisodiya
@@ -56,6 +59,11 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         buttonManageHospitals.setText("MANAGE HOSPITALS");
 
         buttonManageCities.setText("MANAGE CITIES");
+        buttonManageCities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageCitiesActionPerformed(evt);
+            }
+        });
 
         buttonSystemLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         buttonSystemLogOut.setText("LOG OUT");
@@ -134,7 +142,25 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
 
     private void buttonManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageUsersActionPerformed
         // TODO add your handling code here:
+        this.hide();
+        ManageUsers mu = new ManageUsers();
+        mu.show();
     }//GEN-LAST:event_buttonManageUsersActionPerformed
+
+    private void buttonManageCitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageCitiesActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        ViewInfo view = new ViewInfo();
+        view.labelTableDisplay.setText(buttonManageCities.getText());
+        String[] columnNames = {"Cities"};
+        String[][] rows = new String[cityList.size()][1];
+        for(int i=0;i<cityList.size();i++) {
+            rows[i][0] = cityList.get(i);
+        }
+        DefaultTableModel dfm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dfm);
+        view.show();
+    }//GEN-LAST:event_buttonManageCitiesActionPerformed
 
     /**
      * @param args the command line arguments
