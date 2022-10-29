@@ -117,6 +117,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE HOSPITALS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonManageHospitalsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonManageCities">
           <Properties>

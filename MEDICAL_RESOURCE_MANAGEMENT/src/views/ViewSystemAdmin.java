@@ -4,8 +4,13 @@
  */
 package views;
 
+import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
+import models.Community;
+import models.Hospital;
 
 /**
  *
@@ -57,6 +62,11 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         });
 
         buttonManageHospitals.setText("MANAGE HOSPITALS");
+        buttonManageHospitals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageHospitalsActionPerformed(evt);
+            }
+        });
 
         buttonManageCities.setText("MANAGE CITIES");
         buttonManageCities.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +141,20 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
 
     private void buttonManageCommunitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageCommunitiesActionPerformed
         // TODO add your handling code here:
+        this.hide();
+        ViewInfo view = new ViewInfo();
+        view.labelTableDisplay.setText(buttonManageCommunities.getText());
+        String[] columnNames = {"City", "Community name"};
+        String[][] rows = new String[communityMap.size()][2];
+        int i = 0;
+        for(HashMap.Entry<String, Community>set:communityMap.entrySet()){
+            rows[i][0] = set.getValue().getCityName();
+            rows[i][1] = set.getValue().getCommunityName();
+            i++;
+        }
+         DefaultTableModel model = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(model);
+        view.show();
     }//GEN-LAST:event_buttonManageCommunitiesActionPerformed
 
     private void buttonSystemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSystemLogOutActionPerformed
@@ -161,6 +185,27 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         view.tableDisplay.setModel(dfm);
         view.show();
     }//GEN-LAST:event_buttonManageCitiesActionPerformed
+
+    private void buttonManageHospitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageHospitalsActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        ViewInfo view = new ViewInfo();
+        view.labelTableDisplay.setText(buttonManageHospitals.getText());
+        String[] columnNames = {"HospitalName", "City", "Community Name"};
+        String[][] rows = new String[hospitalMap.size()][3];
+        int i = 0;
+        for(HashMap.Entry<String, Hospital>set:hospitalMap.entrySet()){
+            rows[i][0] = set.getValue().getHospitalName();
+            rows[i][1] = set.getValue().getCityName();
+            rows[i][2] = set.getValue().getCommunityName();
+            
+            i++;
+        }
+        
+        DefaultTableModel model = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(model);
+        view.show();
+    }//GEN-LAST:event_buttonManageHospitalsActionPerformed
 
     /**
      * @param args the command line arguments
