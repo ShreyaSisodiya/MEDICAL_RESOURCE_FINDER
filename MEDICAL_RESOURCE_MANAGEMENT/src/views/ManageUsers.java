@@ -4,6 +4,15 @@
  */
 package views;
 
+import java.util.HashMap;
+import javax.swing.table.DefaultTableModel;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityAdminMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.patientMap;
+import models.CommunityAdmin;
+import models.Doctor;
+import models.Patient;
+
 /**
  *
  * @author shreyasisodiya
@@ -26,24 +35,34 @@ public class ManageUsers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonPatientType = new javax.swing.JButton();
+        buttonDoctorType = new javax.swing.JButton();
+        buttonCommAdminType = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         buttonBackUserType = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("PATIENT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonPatientType.setText("PATIENT");
+        buttonPatientType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonPatientTypeActionPerformed(evt);
             }
         });
 
-        jButton2.setText("DOCTOR");
+        buttonDoctorType.setText("DOCTOR");
+        buttonDoctorType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDoctorTypeActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("COMMUNITY ADMIN");
+        buttonCommAdminType.setText("COMMUNITY ADMIN");
+        buttonCommAdminType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCommAdminTypeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("SELECT USER TYPE");
 
@@ -63,13 +82,13 @@ public class ManageUsers extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(buttonBackUserType)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(buttonPatientType)
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(buttonDoctorType)
                                 .addGap(40, 40, 40)
-                                .addComponent(jButton3))
+                                .addComponent(buttonCommAdminType))
                             .addComponent(jLabel1))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -80,9 +99,9 @@ public class ManageUsers extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(buttonDoctorType)
+                    .addComponent(buttonPatientType)
+                    .addComponent(buttonCommAdminType))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(buttonBackUserType)
                 .addGap(40, 40, 40))
@@ -91,9 +110,24 @@ public class ManageUsers extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonPatientTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPatientTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ViewInfo view = new ViewInfo();
+        view.labelTableDisplay.setText("Patients");
+        String[] columnNames = {"Patient Name", "Community", "City"};
+        String[][] rows = new String[patientMap.size()][3];
+        int i = 0;
+        for (HashMap.Entry<String, Patient> set : patientMap.entrySet()) {
+            //rows[i][0] = set.getValue().getPatientID();
+            rows[i][0] = set.getValue().getFirstName();
+            rows[i][1] = set.getValue().getCommunityName();
+            rows[i][2] = set.getValue().getCityName();
+            i++;
+        }
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dtm);
+        view.show();       
+    }//GEN-LAST:event_buttonPatientTypeActionPerformed
 
     private void buttonBackUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackUserTypeActionPerformed
         // TODO add your handling code here:
@@ -101,6 +135,48 @@ public class ManageUsers extends javax.swing.JFrame {
         ViewSystemAdmin vsa = new ViewSystemAdmin();
         vsa.show();
     }//GEN-LAST:event_buttonBackUserTypeActionPerformed
+
+    private void buttonDoctorTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDoctorTypeActionPerformed
+        // TODO add your handling code here:
+        ViewInfo view = new ViewInfo();
+        view.labelTableDisplay.setText("Doctors");
+        String[] columnNames = {"Name", "Hospital Name", "Community", "City"};
+        String[][] rows = new String[doctorMap.size()][4];
+
+        int i = 0;
+        for (HashMap.Entry<String, Doctor> set : doctorMap.entrySet()) {
+            rows[i][0] = set.getValue().getFirstName();
+            rows[i][1] = set.getValue().getHospitalName();
+            rows[i][2] = set.getValue().getCityName();
+            rows[i][3] = set.getValue().getCommunityName();
+            
+            i++;
+        }
+
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dtm);
+        view.show();
+    }//GEN-LAST:event_buttonDoctorTypeActionPerformed
+
+    private void buttonCommAdminTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommAdminTypeActionPerformed
+        // TODO add your handling code here:
+        ViewInfo view = new ViewInfo();
+        view.labelTableDisplay.setText("Community Admin");
+        String[] columnNames = {"Name", "Community", "City"};
+        String[][] rows = new String[doctorMap.size()][3];
+
+        int i = 0;
+        for (HashMap.Entry<String, CommunityAdmin> set : communityAdminMap.entrySet()) {
+            rows[i][0] = set.getValue().getUserName();
+            rows[i][1] = set.getValue().getCommunityName();
+            rows[i][1] = set.getValue().getCityName();            
+            i++;
+        }
+
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dtm);
+        view.show();
+    }//GEN-LAST:event_buttonCommAdminTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,9 +215,9 @@ public class ManageUsers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBackUserType;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton buttonCommAdminType;
+    private javax.swing.JButton buttonDoctorType;
+    private javax.swing.JButton buttonPatientType;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

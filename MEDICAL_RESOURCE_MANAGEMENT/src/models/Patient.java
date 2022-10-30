@@ -13,14 +13,23 @@ public class Patient extends Person
     private String patientUserName;
     private String patientPassword;
     private String hospitalName;
+    private int patientID;
 
-    public Patient(String patientUserName, String patientPassword, String hospitalName, String firstName, String lastName, 
+    public Patient(int patientID, String patientUserName, String patientPassword, String hospitalName, String firstName, String lastName, 
             String gender, int age, String houseName, String communityName, int pinCode, String cityName)
     {
         super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
         this.setPatientUserName(patientUserName);
         this.setPatientPassword(patientPassword);
         this.setHospitalName(hospitalName);
+    }
+
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
     }
 
     public String getPatientUserName() {

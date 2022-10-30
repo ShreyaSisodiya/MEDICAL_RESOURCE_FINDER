@@ -151,8 +151,8 @@ public class LoginForm extends javax.swing.JFrame {
                 else if(userMap.get(uName).getUserType().equals("Community Admin"))
                 {
                     this.hide();
-                    CommunityAdminForm caf = new CommunityAdminForm();
-                    this.show();
+                    ViewCommunityAdmin vca = new ViewCommunityAdmin();
+                    vca.show();
                 }
         }
         else

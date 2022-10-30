@@ -46,7 +46,8 @@ public class CreatePatient extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        buttonSavePatient = new javax.swing.JButton();
+        buttonBackPatient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,8 +86,20 @@ public class CreatePatient extends javax.swing.JFrame {
 
         jLabel10.setText("SET PASSWORD");
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton1.setText("SAVE");
+        buttonSavePatient.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        buttonSavePatient.setText("SAVE");
+        buttonSavePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSavePatientActionPerformed(evt);
+            }
+        });
+
+        buttonBackPatient.setText("BACK");
+        buttonBackPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackPatientActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,9 +149,12 @@ public class CreatePatient extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(300, 300, 300)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel1))))
-                .addContainerGap(117, Short.MAX_VALUE))
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(buttonSavePatient)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonBackPatient)))))
+                .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +193,9 @@ public class CreatePatient extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(77, 77, 77)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonBackPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSavePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
 
@@ -202,6 +220,17 @@ public class CreatePatient extends javax.swing.JFrame {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void buttonSavePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSavePatientActionPerformed
+        // TODO add your handling code here:       
+    }//GEN-LAST:event_buttonSavePatientActionPerformed
+
+    private void buttonBackPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackPatientActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        ViewSystemAdmin vsa = new ViewSystemAdmin();
+        vsa.show();
+    }//GEN-LAST:event_buttonBackPatientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,9 +268,10 @@ public class CreatePatient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBackPatient;
+    private javax.swing.JButton buttonSavePatient;
     public javax.swing.JComboBox<String> comboCity;
     private javax.swing.JComboBox<String> comboCommunity;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -38,6 +38,7 @@ public class CreateCommunity extends javax.swing.JFrame {
         buttonCommunitySave = new javax.swing.JButton();
         textCommunityName = new javax.swing.JTextField();
         textPin = new javax.swing.JTextField();
+        buttonBackCreateComm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,13 @@ public class CreateCommunity extends javax.swing.JFrame {
             }
         });
 
+        buttonBackCreateComm.setText("BACK");
+        buttonBackCreateComm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackCreateCommActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +82,9 @@ public class CreateCommunity extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(288, 288, 288)
                 .addComponent(buttonCommunitySave)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonBackCreateComm)
+                .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -90,7 +100,8 @@ public class CreateCommunity extends javax.swing.JFrame {
                     .addComponent(textPin)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(comboCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +123,9 @@ public class CreateCommunity extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(textPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(buttonCommunitySave)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCommunitySave)
+                    .addComponent(buttonBackCreateComm))
                 .addGap(39, 39, 39))
         );
 
@@ -131,6 +144,13 @@ public class CreateCommunity extends javax.swing.JFrame {
         ViewSystemAdmin vsa = new ViewSystemAdmin();
         vsa.show();
     }//GEN-LAST:event_buttonCommunitySaveActionPerformed
+
+    private void buttonBackCreateCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackCreateCommActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        ViewSystemAdmin vsa = new ViewSystemAdmin();
+        vsa.show();
+    }//GEN-LAST:event_buttonBackCreateCommActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +188,7 @@ public class CreateCommunity extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBackCreateComm;
     private javax.swing.JButton buttonCommunitySave;
     public javax.swing.JComboBox<String> comboCity;
     private javax.swing.JLabel jLabel2;

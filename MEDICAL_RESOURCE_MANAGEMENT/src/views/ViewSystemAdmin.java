@@ -45,7 +45,7 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jLabel1.setText("SYSTEM ADMIN");
+        jLabel1.setText("WELCOME SYSTEM ADMIN");
 
         buttonManageCommunities.setText("MANAGE COMMUNITIES");
         buttonManageCommunities.addActionListener(new java.awt.event.ActionListener() {
@@ -87,39 +87,39 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonManageHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonManageCommunities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonManageCities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(142, 142, 142))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(551, Short.MAX_VALUE)
+                .addComponent(buttonSystemLogOut)
+                .addGap(73, 73, 73))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(260, 260, 260))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonSystemLogOut)
-                        .addGap(73, 73, 73))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonManageCommunities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(109, 109, 109)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonManageHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(buttonManageCities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel1)
-                .addGap(87, 87, 87)
+                .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonManageCommunities)
-                    .addComponent(buttonManageUsers))
+                    .addComponent(buttonManageHospitals))
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonManageHospitals)
-                    .addComponent(buttonManageCities))
+                    .addComponent(buttonManageCities)
+                    .addComponent(buttonManageUsers))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(buttonSystemLogOut)
                 .addGap(38, 38, 38))
@@ -152,8 +152,8 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
             rows[i][1] = set.getValue().getCommunityName();
             i++;
         }
-         DefaultTableModel model = new DefaultTableModel (rows, columnNames);
-        view.tableDisplay.setModel(model);
+         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dtm);
         view.show();
     }//GEN-LAST:event_buttonManageCommunitiesActionPerformed
 
@@ -181,8 +181,8 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         for(int i=0;i<cityList.size();i++) {
             rows[i][0] = cityList.get(i);
         }
-        DefaultTableModel dfm = new DefaultTableModel (rows, columnNames);
-        view.tableDisplay.setModel(dfm);
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dtm);
         view.show();
     }//GEN-LAST:event_buttonManageCitiesActionPerformed
 
@@ -202,8 +202,8 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
             i++;
         }
         
-        DefaultTableModel model = new DefaultTableModel (rows, columnNames);
-        view.tableDisplay.setModel(model);
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplay.setModel(dtm);
         view.show();
     }//GEN-LAST:event_buttonManageHospitalsActionPerformed
 

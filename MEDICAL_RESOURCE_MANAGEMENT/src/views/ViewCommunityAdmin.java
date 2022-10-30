@@ -4,6 +4,12 @@
  */
 package views;
 
+import java.util.HashMap;
+import javax.swing.table.DefaultTableModel;
+import medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
+import models.Community;
+
 /**
  *
  * @author shreyasisodiya
@@ -16,7 +22,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
     public ViewCommunityAdmin() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,27 +34,30 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        buttonManageCommunities = new javax.swing.JButton();
+        buttonMH = new javax.swing.JButton();
+        buttonMP = new javax.swing.JButton();
+        buttonLogOutComm = new javax.swing.JButton();
+        buttonMHouse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("WELCOME COMMUNITY ADMIN");
 
-        jButton1.setText("MANAGE COMMUNITIES");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonManageCommunities.setText("MANAGE COMMUNITIES");
+        buttonManageCommunities.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonManageCommunitiesActionPerformed(evt);
             }
         });
 
-        jButton2.setText("MANAGE HOSPITALS");
+        buttonMH.setText("MANAGE HOSPITALS");
 
-        jButton3.setText("MANAGE PATIENTS");
+        buttonMP.setText("MANAGE PATIENTS");
 
-        jButton4.setText("SAVE");
+        buttonLogOutComm.setText("LOG OUT");
+
+        buttonMHouse.setText("MANAGE HOUSES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,14 +71,16 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonMP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonManageCommunities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(69, 69, 69)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonMH, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                            .addComponent(buttonMHouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(91, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(buttonLogOutComm)
                 .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,12 +90,14 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(buttonManageCommunities)
+                    .addComponent(buttonMH))
                 .addGap(48, 48, 48)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonMP)
+                    .addComponent(buttonMHouse))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                .addComponent(buttonLogOutComm)
                 .addGap(59, 59, 59))
         );
 
@@ -102,9 +115,23 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonManageCommunitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageCommunitiesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.hide();
+        ViewInfoCommunity view = new ViewInfoCommunity();
+        view.labelTableDisplay.setText(buttonManageCommunities.getText());
+        String[] columnNames = {"City", "Community Name"};
+        String[][] rows = new String[communityMap.size()][2];
+        int i = 0;
+        for(HashMap.Entry<String, Community>set:communityMap.entrySet()){
+            rows[i][0] = set.getValue().getCityName();
+            rows[i][1] = set.getValue().getCommunityName();
+            i++;
+        }
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplayCommunity.setModel(dtm);
+        view.show();
+    }//GEN-LAST:event_buttonManageCommunitiesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,10 +169,11 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton buttonLogOutComm;
+    private javax.swing.JButton buttonMH;
+    private javax.swing.JButton buttonMHouse;
+    private javax.swing.JButton buttonMP;
+    private javax.swing.JButton buttonManageCommunities;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
