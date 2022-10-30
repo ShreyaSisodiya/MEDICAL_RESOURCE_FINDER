@@ -10,6 +10,7 @@ import models.Community;
 import models.CommunityAdmin;
 import models.Doctor;
 import models.Hospital;
+import models.House;
 import models.Patient;
 import models.User;
 import views.LoginForm;
@@ -30,6 +31,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
     public static HashMap<String, Doctor> doctorMap = new HashMap<String, Doctor>();
     public static HashMap<String, Patient> patientMap = new HashMap<String, Patient>();
     public static HashMap<String, Hospital> hospitalMap = new HashMap<String, Hospital>();
+    public static HashMap<String, House> houseMap = new HashMap<String, House>();
     
     public static ArrayList<String> cityList = new ArrayList<String>();
     public static ArrayList<String> encounters = new ArrayList<String>();
@@ -48,11 +50,13 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         User Krishnna = new User("Krishnna", "patient","Patient" );
         User Victoria = new User("Victoria", "admin", "Community Admin");
         User Grey = new User("Grey", "doctor", "Doctor");
+        User Fin = new User("Fin", "admin", "Community Admin");
         
         userMap.put(Krishnna.getUserName(), Krishnna);
         userMap.put(Shreya.getUserName(), Shreya);
         userMap.put(Victoria.getUserName(), Victoria);
         userMap.put(Grey.getUserName(), Grey);
+        userMap.put(Fin.getUserName(), Fin);
         
         Community Lenox = new Community("Lenox Hill", 00001,"New York");
         Community Yorkville = new Community("Yorkville", 00002, "New York");
@@ -84,7 +88,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         hospitalMap.put(HC.getHospitalName(), HC);
         hospitalMap.put(HD.getHospitalName(), HD);
         
-        CommunityAdmin CA = new CommunityAdmin("Grey", "Grey", "Male", "Cambridge", 00004,"Boston");
+        CommunityAdmin CA = new CommunityAdmin("Victoria", "Victoria", "Female", "Cambridge", 00004,"Boston");
         CommunityAdmin CA2 = new CommunityAdmin("Fin", "Fin", "Male", "Market Yard", 00003,"Bsoton");
         
         communityMap.put(CA.getUserName(), CA);

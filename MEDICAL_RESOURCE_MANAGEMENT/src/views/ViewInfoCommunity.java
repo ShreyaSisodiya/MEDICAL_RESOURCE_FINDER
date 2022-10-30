@@ -132,56 +132,20 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
 
     private void buttonCreateTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateTableActionPerformed
         // TODO add your handling code here:
-//        if(labelTableDisplay.getText() == "MANAGE CITIES")
-//        {
-//            this.hide();
-//            CreateCity cc = new CreateCity();
-//            cc.show();
-//        }
+        
         if (labelTableDisplay.getText() == "MANAGE HOSPITALS")
         {
             this.hide();
-            CreateHospital ch = new CreateHospital();
-            for(int i=0;i<cityList.size();i++)
-            {
-                ch.comboCity.addItem(cityList.get(i));
-            }
-            ch.show();
+            CreateHospitalCommunity chc = new CreateHospitalCommunity();
+            chc.show();
         }
-        else if(labelTableDisplay.getText() == "MANAGE COMMUNITIES")
+        else if (labelTableDisplay.getText() == "MANAGE HOUSES")
         {
             this.hide();
-            CreateCommunity cc = new CreateCommunity();
-            for(int i=0;i<cityList.size();i++) {
-                cc.comboCity.addItem(cityList.get(i));
-            }
-            cc.show();
+            CreateHouse ch = new CreateHouse();
+            ch.show();
         }
-        else if(labelTableDisplay.getText() == "MANAGE PATIENTS"){
-            this.hide();
-            CreatePatient cp = new CreatePatient();
-            cp.comboCity.removeAll();
-            for(int i=0;i<cityList.size();i++) {
-                cp.comboCity.addItem(cityList.get(i));
-            }
-            cp.show();
-        }
-        else if(labelTableDisplay.getText() == "MANAGE DOCTORS"){
-            this.hide();
-            CreateDoctor cdoc = new CreateDoctor();
-            for(int i=0;i<cityList.size();i++) {
-                cdoc.comboCity.addItem(cityList.get(i));
-            }
-            cdoc.show();
-        }
-        else if(labelTableDisplay.getText() == "COMMUNITY ADMIN"){
-            this.hide();
-            CommunityAdminForm caf = new CommunityAdminForm();
-            for(int i=0;i<cityList.size();i++) {
-                caf.comboCity.addItem(cityList.get(i));
-            }
-            caf.show();
-        }
+        
     }//GEN-LAST:event_buttonCreateTableActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

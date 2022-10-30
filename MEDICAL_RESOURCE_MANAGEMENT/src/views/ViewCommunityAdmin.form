@@ -45,15 +45,15 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="buttonMP" max="32767" attributes="0"/>
-                              <Component id="buttonManageCommunities" max="32767" attributes="0"/>
+                              <Component id="buttonViewPatients" pref="176" max="32767" attributes="0"/>
+                              <Component id="buttonViewDoctors" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="buttonMH" pref="164" max="32767" attributes="0"/>
-                              <Component id="buttonMHouse" max="32767" attributes="0"/>
+                              <Component id="buttonManageHouses" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -73,13 +73,13 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonManageCommunities" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buttonMH" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonViewPatients" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonMP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonMHouse" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonManageHouses" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonViewDoctors" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="130" max="32767" attributes="0"/>
                   <Component id="buttonLogOutComm" min="-2" max="-2" attributes="0"/>
@@ -94,32 +94,41 @@
             <Property name="text" type="java.lang.String" value="WELCOME COMMUNITY ADMIN"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonManageCommunities">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="MANAGE COMMUNITIES"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonManageCommunitiesActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="buttonMH">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE HOSPITALS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMHActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonMP">
+        <Component class="javax.swing.JButton" name="buttonViewPatients">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MANAGE PATIENTS"/>
+            <Property name="text" type="java.lang.String" value="VIEW PATIENTS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonViewPatientsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonLogOutComm">
           <Properties>
             <Property name="text" type="java.lang.String" value="LOG OUT"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLogOutCommActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonMHouse">
+        <Component class="javax.swing.JButton" name="buttonManageHouses">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE HOUSES"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonManageHousesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonViewDoctors">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="VIEW DOCTORS"/>
           </Properties>
         </Component>
       </SubComponents>
