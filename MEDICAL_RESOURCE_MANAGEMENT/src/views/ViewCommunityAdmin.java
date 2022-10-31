@@ -6,10 +6,14 @@ package views;
 
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.houseMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.patientMap;
+import models.Doctor;
 import models.Hospital;
 import models.House;
+import models.Patient;
 
 /**
  *
@@ -74,6 +78,11 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         });
 
         buttonViewDoctors.setText("VIEW DOCTORS");
+        buttonViewDoctors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonViewDoctorsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,21 +162,24 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
 
     private void buttonViewPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewPatientsActionPerformed
         // TODO add your handling code here:
-//        ViewInfoCommunity view = new ViewInfoCommunity();
-//        view.labelTableDisplay.setText(buttonViewPatients.getText());
-//        String[] columnNames = {"Patient Name", "Community", "City"};
-//        String[][] rows = new String[patientMap.size()][3];
-//        int i = 0;
-//        for (HashMap.Entry<String, Patient> set : patientMap.entrySet()) {
-//            //rows[i][0] = set.getValue().getPatientID();
-//            rows[i][0] = set.getValue().getFirstName();
-//            rows[i][1] = set.getValue().getCommunityName();
-//            rows[i][2] = set.getValue().getCityName();
-//            i++;
-//        }
-//        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
-//        view.tableDisplayCommunity.setModel(dtm);
-//        view.show();  
+        ViewInfoCommunity view = new ViewInfoCommunity();
+        view.labelTableDisplay.setText(buttonViewPatients.getText());
+        String[] columnNames = {"Patient Name", "Community", "City"};
+        String[][] rows = new String[patientMap.size()][3];
+        int i = 0;
+        for (HashMap.Entry<String, Patient> set : patientMap.entrySet()) {
+            //rows[i][0] = set.getValue().getPatientID();
+            rows[i][0] = set.getValue().getFirstName();
+            rows[i][1] = set.getValue().getCommunityName();
+            rows[i][2] = set.getValue().getCityName();
+            i++;
+        }
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplayCommunity.setModel(dtm);
+        view.buttonCreateTable.setVisible(false);
+        view.buttonEditComm.setVisible(false);
+        view.buttonDeleteComm.setVisible(false);
+        view.show();  
     }//GEN-LAST:event_buttonViewPatientsActionPerformed
 
     private void buttonManageHousesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageHousesActionPerformed
@@ -198,6 +210,29 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         LoginForm logform = new LoginForm();
         logform.show();
     }//GEN-LAST:event_buttonLogOutCommActionPerformed
+
+    private void buttonViewDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewDoctorsActionPerformed
+        // TODO add your handling code here:
+        ViewInfoCommunity view = new ViewInfoCommunity();
+        view.labelTableDisplay.setText(buttonViewDoctors.getText());
+        String[] columnNames = {"Doctor Name", "Hospital Name", "Community Name", "City"};
+        String[][] rows = new String[doctorMap.size()][4];
+        int i = 0;
+        for (HashMap.Entry<String, Doctor> set : doctorMap.entrySet()) {
+            //rows[i][0] = set.getValue().getPatientID();
+            rows[i][0] = set.getValue().getFirstName();
+            rows[i][1] = set.getValue().getHospitalName();
+            rows[i][2] = set.getValue().getCommunityName();
+            rows[i][3] = set.getValue().getCityName();
+            i++;
+        }
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        view.tableDisplayCommunity.setModel(dtm);
+        view.buttonCreateTable.setVisible(false);
+        view.buttonEditComm.setVisible(false);
+        view.buttonDeleteComm.setVisible(false);
+        view.show(); 
+    }//GEN-LAST:event_buttonViewDoctorsActionPerformed
 
     /**
      * @param args the command line arguments
