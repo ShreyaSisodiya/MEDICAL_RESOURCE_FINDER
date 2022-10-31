@@ -4,6 +4,7 @@
  */
 package views;
 
+import javax.swing.table.DefaultTableModel;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
 
 /**
@@ -35,7 +36,7 @@ public class ViewInfo extends javax.swing.JFrame {
         labelTableDisplay = new javax.swing.JLabel();
         buttonCreateTable = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        buttonDeleteInfo = new javax.swing.JButton();
         buttonTableBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,10 +67,10 @@ public class ViewInfo extends javax.swing.JFrame {
 
         jButton2.setText("EDIT");
 
-        jButton1.setText("DELETE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonDeleteInfo.setText("DELETE");
+        buttonDeleteInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonDeleteInfoActionPerformed(evt);
             }
         });
 
@@ -93,7 +94,7 @@ public class ViewInfo extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jButton2)
                         .addGap(70, 70, 70)
-                        .addComponent(jButton1)
+                        .addComponent(buttonDeleteInfo)
                         .addGap(70, 70, 70)
                         .addComponent(buttonTableBack))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -112,7 +113,7 @@ public class ViewInfo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCreateTable)
                     .addComponent(jButton2)
-                    .addComponent(jButton1)
+                    .addComponent(buttonDeleteInfo)
                     .addComponent(buttonTableBack))
                 .addGap(35, 35, 35))
         );
@@ -203,9 +204,9 @@ public class ViewInfo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonCreateTableActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonDeleteInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteInfoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonDeleteInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,8 +245,8 @@ public class ViewInfo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCreateTable;
+    private javax.swing.JButton buttonDeleteInfo;
     private javax.swing.JButton buttonTableBack;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

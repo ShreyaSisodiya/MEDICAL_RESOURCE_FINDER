@@ -9,6 +9,7 @@ import java.util.HashMap;
 import models.Community;
 import models.CommunityAdmin;
 import models.Doctor;
+import models.Encounter;
 import models.Hospital;
 import models.House;
 import models.Patient;
@@ -34,10 +35,12 @@ public class MEDICAL_RESOURCE_MANAGEMENT
     public static HashMap<String, House> houseMap = new HashMap<String, House>();
     
     public static ArrayList<String> cityList = new ArrayList<String>();
-    public static ArrayList<String> encounters = new ArrayList<String>();
+    public static ArrayList<Encounter> encounters = new ArrayList<Encounter>();
     
     public static String citiesName = "";
     public static String comName = "";
+    public static String docUserName = "";
+    public static String docName = "";
 
 
     public static void main(String[] args) 
@@ -51,12 +54,25 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         User Victoria = new User("Victoria", "admin", "Community Admin");
         User Grey = new User("Grey", "doctor", "Doctor");
         User Fin = new User("Fin", "admin", "Community Admin");
+        User Bessa = new User("Bessa", "admin", "Community Admin");
+        User Charlie = new User("Charlie", "admin", "Community Admin");
+        User Taylor = new User("Taylor", "doctor", "Doctor");
+        User Lana = new User("Lana", "doctor", "Doctor");
+        User Ariana = new User("Ariana", "doctor", "Doctor");
+        User Billie = new User("Billie", "doctor", "Doctor");
         
         userMap.put(Krishnna.getUserName(), Krishnna);
         userMap.put(Shreya.getUserName(), Shreya);
         userMap.put(Victoria.getUserName(), Victoria);
         userMap.put(Grey.getUserName(), Grey);
         userMap.put(Fin.getUserName(), Fin);
+        userMap.put(Bessa.getUserName(), Bessa);
+        userMap.put(Charlie.getUserName(), Charlie);
+        userMap.put(Taylor.getUserName(), Taylor);
+        userMap.put(Lana.getUserName(), Lana);
+        userMap.put(Ariana.getUserName(), Ariana);
+        userMap.put(Billie.getUserName(), Billie);
+        
         
         Community Lenox = new Community("Lenox Hill", 00001,"New York");
         Community Yorkville = new Community("Yorkville", 00002, "New York");
@@ -68,15 +84,15 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         communityMap.put(BeaconHill.getCommunityName(), BeaconHill);
         communityMap.put(Cambridge.getCommunityName(), Cambridge);
         
-        Doctor Taylor = new Doctor("hospitalA", "Taylor", "Swift", "female",30, "houseA", "Lenox", 00001, "New York");
-        Doctor Lana = new Doctor("hospitalB", "Lana", "Del Rey", "female",30, "houseB", "Yorkville", 00002, "New York");
-        Doctor Ariana = new Doctor("hospitalC", "Ariana", "Grande", "female", 30,"houseC", "Beacon Hill", 00003, "Boston");
-        Doctor Billie = new Doctor("hospitalD", "Billie", "Ellish", "female",19, "houseD", "Cambridge", 00004, "Boston");
+        Doctor D1 = new Doctor("hospitalA", "Taylor", "Swift", "female",30, "houseA", "Lenox", 00001, "New York");
+        Doctor D2 = new Doctor("hospitalB", "Lana", "Del Rey", "female",30, "houseB", "Yorkville", 00002, "New York");
+        Doctor D3 = new Doctor("hospitalC", "Ariana", "Grande", "female", 30,"houseC", "Beacon Hill", 00003, "Boston");
+        Doctor D4 = new Doctor("hospitalD", "Billie", "Ellish", "female",19, "houseD", "Cambridge", 00004, "Boston");
         
-        doctorMap.put(Billie.getFirstName(), Billie);
-        doctorMap.put(Taylor.getFirstName(), Taylor);
-        doctorMap.put(Lana.getFirstName(), Lana);
-        doctorMap.put(Ariana.getFirstName(), Ariana);
+        doctorMap.put(D4.getFirstName(), D4);
+        doctorMap.put(D1.getFirstName(), D1);
+        doctorMap.put(D2.getFirstName(), D2);
+        doctorMap.put(D3.getFirstName(), D3);
         
         Hospital HA = new Hospital("A", "Lenox Hill", 00001, "New York");
         Hospital HB = new Hospital("B", "Yorkville", 00002, "New York");
@@ -98,9 +114,9 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         communityAdminMap.put(CA3.getUserName(), CA3);
         communityAdminMap.put(CA4.getUserName(), CA4);
         
-        //Patient Nupoor = new Patient(1, "Nupoor","nupoor", "A", "Nupoor", "Korde", "female", 25, "JVue","Cambridge",00004,"Boston");
+        Patient Nupoor = new Patient(1, "Nupoor","nupoor", "A", "Nupoor", "Korde", "female", 25, "JVue","Cambridge",00004,"Boston");
         
-        //patientMap.put(Nupoor.getPatientID(), Nupoor);
+        patientMap.put(Nupoor.getPatientUserName(), Nupoor);
         
         LoginForm logForm = new LoginForm();
         logForm.show();

@@ -6,6 +6,7 @@ package views;
 
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
+import medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.houseMap;
@@ -26,6 +27,15 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
      */
     public ViewCommunityAdmin() {
         initComponents();
+        if(MEDICAL_RESOURCE_MANAGEMENT.comName.length() > 0) {
+            jLabel1.setText(MEDICAL_RESOURCE_MANAGEMENT.comName);
+    }
+    }
+    public void getComm(String communityName, String cityName)
+    { 
+        jLabel1.setText("Welcome " +communityName);
+        MEDICAL_RESOURCE_MANAGEMENT.comName = communityName;
+        MEDICAL_RESOURCE_MANAGEMENT.citiesName = cityName;
     }
     
     /**
@@ -47,6 +57,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME COMMUNITY ADMIN");
 
         buttonMH.setText("MANAGE HOSPITALS");
@@ -88,11 +99,12 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonLogOutComm)
+                .addGap(99, 99, 99))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -101,19 +113,18 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buttonMH, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                            .addComponent(buttonManageHouses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(buttonManageHouses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel1)))
                 .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(buttonLogOutComm)
-                .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addGap(66, 66, 66)
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonMH)
                     .addComponent(buttonViewPatients))
@@ -121,7 +132,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonManageHouses)
                     .addComponent(buttonViewDoctors))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(buttonLogOutComm)
                 .addGap(59, 59, 59))
         );

@@ -11,6 +11,16 @@ package models;
 public class Doctor extends Person
 {
     private String hospitalName;
+    private int doctorID;
+    private String userName;
+
+    public Doctor(String hospitalName, int doctorID, String userName, String firstName, String lastName, String gender, int age, 
+            String houseName, String communityName, int pinCode, String cityName) {
+        super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
+        this.hospitalName = hospitalName;
+        this.doctorID = doctorID;
+        this.userName = userName;
+    }
 
     public Doctor(String hospitalName, String firstName, String lastName, String gender, int age, String houseName, 
             String communityName, int pinCode, String cityName) 
@@ -27,7 +37,23 @@ public class Doctor extends Person
     public void setHospitalName(String hospitalName) 
     {
         this.hospitalName = hospitalName;
-}
+    }
+
+    public int getDoctorID() {
+        return doctorID;
+    }
+
+    public void setDoctorID(int doctorID) {
+        this.doctorID = doctorID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
     
     
 }

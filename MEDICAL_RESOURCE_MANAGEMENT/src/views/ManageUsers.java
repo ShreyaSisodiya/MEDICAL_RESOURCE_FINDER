@@ -114,14 +114,14 @@ public class ManageUsers extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewInfo view = new ViewInfo();
         view.labelTableDisplay.setText("Patients");
-        String[] columnNames = {"Patient Name", "Community", "City"};
-        String[][] rows = new String[patientMap.size()][3];
+        String[] columnNames = {"ID","Patient Name", "Community", "City"};
+        String[][] rows = new String[patientMap.size()][4];
         int i = 0;
         for (HashMap.Entry<String, Patient> set : patientMap.entrySet()) {
-            //rows[i][0] = set.getValue().getPatientID();
-            rows[i][0] = set.getValue().getFirstName();
-            rows[i][1] = set.getValue().getCommunityName();
-            rows[i][2] = set.getValue().getCityName();
+            rows[i][0] = Integer.toString(set.getValue().getPatientID());
+            rows[i][1] = set.getValue().getFirstName();
+            rows[i][2] = set.getValue().getCommunityName();
+            rows[i][3] = set.getValue().getCityName();
             i++;
         }
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);

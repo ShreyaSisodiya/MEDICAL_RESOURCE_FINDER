@@ -7,8 +7,10 @@ package views;
 import java.util.HashMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.patientMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.userMap;
 import models.Community;
 import models.Patient;
+import models.User;
 
 /**
  *
@@ -98,6 +100,12 @@ public class CreatePatient extends javax.swing.JFrame {
 
         jLabel8.setText("COMMUNITY");
 
+        comboCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCommunityActionPerformed(evt);
+            }
+        });
+
         jLabel9.setText("PIN CODE");
 
         textPinPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -163,15 +171,13 @@ public class CreatePatient extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel11)
                                         .addGap(26, 26, 26)
-                                        .addComponent(textPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(textPinPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(textPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addGap(35, 35, 35)
+                                            .addComponent(textPinPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -274,6 +280,8 @@ public class CreatePatient extends javax.swing.JFrame {
 
     private void buttonSavePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSavePatientActionPerformed
         // TODO add your handling code here: 
+        User user = new User(textPatientUserName.getText(), passwordFieldPatient.getText(),"Patient");
+        userMap.put(textPatientUserName.getText(), user);
         Patient p = new Patient(Integer.parseInt(textPatientID.getText()), textPatientUserName.getText(), passwordFieldPatient.getText(),
                 textHospitalName.getText(), textPatientFirstName.getText(), textPatientLastName.getText(), comboGender.getSelectedItem().toString(),
                 Integer.parseInt(textPatientAge.getText()),textPatientHouse.getText(), comboCommunity.getSelectedItem().toString(), 
@@ -281,8 +289,8 @@ public class CreatePatient extends javax.swing.JFrame {
         
         patientMap.put(p.getPatientUserName(), p);
         this.hide();
-        ViewSystemAdmin vsa = new ViewSystemAdmin();
-        vsa.show();
+        LoginForm logform = new LoginForm();
+        logform.show();
     }//GEN-LAST:event_buttonSavePatientActionPerformed
 
     private void buttonBackPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackPatientActionPerformed
@@ -308,6 +316,10 @@ public class CreatePatient extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_comboCityActionPerformed
+
+    private void comboCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCommunityActionPerformed
 
     /**
      * @param args the command line arguments

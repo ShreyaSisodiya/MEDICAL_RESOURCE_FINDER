@@ -4,6 +4,8 @@
  */
 package models;
 
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
+
 /**
  *
  * @author shreyasisodiya
@@ -20,8 +22,10 @@ public class City
         return cityName;
     }
 
-    public void setCityName(String cityName) {
+    public void setCityName(String cityname) {
         this.cityName = cityName;
     }    
-    
+    public static void addCity(String city){
+        cityList.add(city);
+    }
 }
