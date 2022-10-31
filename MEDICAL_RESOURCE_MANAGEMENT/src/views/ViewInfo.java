@@ -176,7 +176,7 @@ public class ViewInfo extends javax.swing.JFrame {
         }
             cc.show();
         }
-        else if(labelTableDisplay.getText() == "MANAGE PATIENTS"){
+        else if(labelTableDisplay.getText() == "Patients"){
             this.hide();
             CreatePatient cp = new CreatePatient();
             cp.comboCity.removeAll();
@@ -185,7 +185,7 @@ public class ViewInfo extends javax.swing.JFrame {
             }
         cp.show();
         }
-        else if(labelTableDisplay.getText() == "MANAGE DOCTORS"){
+        else if(labelTableDisplay.getText() == "DOCTOR"){
             this.hide();
             CreateDoctor cdoc = new CreateDoctor();
             for(int i=0;i<cityList.size();i++) {
