@@ -4,6 +4,7 @@
  */
 package views;
 
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
 import models.Doctor;
 
 /**
@@ -42,22 +43,22 @@ public class CreateDoctor extends javax.swing.JFrame {
         comboCity = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         comboCommunity = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        comboDocHouse = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        comboDocPin = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        comboDocHospitalName = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        comboDocPassword = new javax.swing.JPasswordField();
         buttondocSave = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        textDocAge = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        textDocHouse = new javax.swing.JTextField();
+        comboHospital = new javax.swing.JComboBox<>();
+        textPin = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel1.setText("DOCTOR");
 
-        jLabel2.setText("NAME");
+        jLabel2.setText("FIRST NAME");
 
         textDocFName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,33 +104,9 @@ public class CreateDoctor extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("HOUSE");
-
-        comboDocHouse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboDocHouseActionPerformed(evt);
-            }
-        });
-
         jLabel9.setText("PIN CODE");
 
-        comboDocPin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboDocPinActionPerformed(evt);
-            }
-        });
-
         jLabel10.setText("HOSPITAL NAME");
-
-        comboDocHospitalName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HOSPITAL NAME", " " }));
-
-        jLabel11.setText("SET PASSWORD");
-
-        comboDocPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboDocPasswordActionPerformed(evt);
-            }
-        });
 
         buttondocSave.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         buttondocSave.setText("SAVE");
@@ -139,31 +116,39 @@ public class CreateDoctor extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setText("AGE");
+
+        jLabel13.setText("HOUSE NAME");
+
+        textDocHouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDocHouseActionPerformed(evt);
+            }
+        });
+
+        comboHospital.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addComponent(jLabel2)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(textDocAge)
+                    .addComponent(textDocFName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboDocGender, javax.swing.GroupLayout.Alignment.LEADING, 0, 135, Short.MAX_VALUE)
+                    .addComponent(comboCity, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboHospital, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(comboDocPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textDocFName)
-                            .addComponent(comboDocGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboDocHouse)
-                            .addComponent(comboDocHospitalName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(82, 82, 82)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,30 +156,37 @@ public class CreateDoctor extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(textDocLName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(77, 77, 77))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(textDocHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(textDocUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(79, 79, 79))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(25, 25, 25))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboDocPin)
-                                    .addComponent(comboCommunity, 0, 135, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel7)
+                                .addGap(25, 25, 25))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textDocUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(79, 79, 79))))))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboCommunity, 0, 135, Short.MAX_VALUE)
+                            .addComponent(textPin))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(300, 300, 300)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
+                        .addGap(307, 307, 307)
                         .addComponent(buttondocSave)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -209,44 +201,40 @@ public class CreateDoctor extends javax.swing.JFrame {
                     .addComponent(textDocFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textDocLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(35, 35, 35)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(textDocAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(textDocHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(textDocUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboDocGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(35, 35, 35)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(comboDocHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(comboDocPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
                     .addComponent(jLabel10)
-                    .addComponent(comboDocHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(comboDocPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addComponent(buttondocSave)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,61 +264,23 @@ public class CreateDoctor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboCommunityActionPerformed
 
-    private void comboDocHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocHouseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboDocHouseActionPerformed
-
-    private void comboDocPinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocPinActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboDocPinActionPerformed
-
-    private void comboDocPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboDocPasswordActionPerformed
-
     private void buttondocSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttondocSaveActionPerformed
         // TODO add your handling code here:
-        //Doctor doc = new Doctor(comboHospitalName.getSelectedItem().toString(),text);
-
-        //
-        //        if(textName.getText().equals("") || textEmployeeID.getText().equals("")|| textAge.getText().equals("")
-            //                || textStartDate.getText().equals("") || textLevel.getText().equals("") || textTeamInfo.getText().equals("")
-            //                || textPositionTitle.getText().equals("") || textPhone.getText().equals("") || textEmail.getText().equals("")
-            //                || textGender.getText().equals(""))
-        //        {
-            //            JOptionPane.showMessageDialog(this, "Do Not Leave Any Field Blank");
-            //        }
-        //        else if(!(Pattern.matches("^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$", textEmail.getText())))
-        //        {
-            //            JOptionPane.showMessageDialog(null, "Please enter a valid email", "Error", JOptionPane.ERROR_MESSAGE);
-            //        }
-        //        else
-        //        {
-            //            String empData[] = {textName.getText(),textEmployeeID.getText(), textAge.getText(), textGender.getText() ,
-                //                textStartDate.getText(), textLevel.getText(), textTeamInfo.getText(), textPositionTitle.getText(),
-                //                textPhone.getText(), textEmail.getText(), imgPath};
-            //
-            //            DefaultTableModel defTable = (DefaultTableModel)tableEmployee.getModel();
-            //            defTable.addRow(empData);
-            //
-            //            ImageIcon ii = new ImageIcon(imgPath);
-            //
-            //            JOptionPane.showMessageDialog(this,"Employee Data Saved");
-            //
-            //            textName.setText("");
-            //            textEmployeeID.setText("");
-            //            textAge.setText("");
-            //            textGender.setText("");
-            //            textStartDate.setText("");
-            //            textLevel.setText("");
-            //            textTeamInfo.setText("");
-            //            textPositionTitle.setText("");
-            //            textPhone.setText("");
-            //            textEmail.setText("");
-            //            labelImage.setVisible(false);
-            //            labelImage.setIcon(null);
-            //        }
+        Doctor dr = new Doctor(comboHospital.getSelectedItem().toString(),textDocFName.getText(), textDocLName.getText(),
+                comboDocGender.getSelectedItem().toString(),Integer.parseInt(textDocAge.getText()),textDocHouse.getText(),
+                comboCommunity.getSelectedItem().toString(), 
+                Integer.parseInt(textPin.getText()), 
+                comboCity.getSelectedItem().toString());
+                
+        doctorMap.put(dr.getFirstName(), dr);
+        this.hide();
+        ViewSystemAdmin vsa = new ViewSystemAdmin();
+        vsa.show();
     }//GEN-LAST:event_buttondocSaveActionPerformed
+
+    private void textDocHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDocHouseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDocHouseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,24 +322,24 @@ public class CreateDoctor extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboCity;
     private javax.swing.JComboBox<String> comboCommunity;
     private javax.swing.JComboBox<String> comboDocGender;
-    private javax.swing.JComboBox<String> comboDocHospitalName;
-    private javax.swing.JTextField comboDocHouse;
-    private javax.swing.JPasswordField comboDocPassword;
-    private javax.swing.JTextField comboDocPin;
+    private javax.swing.JComboBox<String> comboHospital;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField textDocAge;
     private javax.swing.JTextField textDocFName;
+    private javax.swing.JTextField textDocHouse;
     private javax.swing.JTextField textDocLName;
     private javax.swing.JTextField textDocUserName;
+    private javax.swing.JTextField textPin;
     // End of variables declaration//GEN-END:variables
 }

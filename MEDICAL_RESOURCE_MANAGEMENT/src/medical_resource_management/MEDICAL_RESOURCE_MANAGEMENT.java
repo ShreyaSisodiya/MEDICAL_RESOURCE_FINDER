@@ -89,10 +89,14 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         hospitalMap.put(HD.getHospitalName(), HD);
         
         CommunityAdmin CA = new CommunityAdmin("Victoria", "Victoria", "Female", "Cambridge", 00004,"Boston");
-        CommunityAdmin CA2 = new CommunityAdmin("Fin", "Fin", "Male", "Market Yard", 00003,"Bsoton");
-        
-        communityMap.put(CA.getUserName(), CA);
-        communityMap.put(CA2.getUserName(), CA2);
+        CommunityAdmin CA2 = new CommunityAdmin("Fin", "Fin", "Male", "Beacon Hill", 00003,"Bsoton");
+        CommunityAdmin CA3 = new CommunityAdmin("Charlie", "Charlie", "Female", "Yorkville", 00002,"New York");
+        CommunityAdmin CA4 = new CommunityAdmin("Bessa", "Bessa", "Female", "Lenox", 00001,"New York");
+   
+        communityAdminMap.put(CA.getUserName(), CA);
+        communityAdminMap.put(CA2.getUserName(), CA2);
+        communityAdminMap.put(CA3.getUserName(), CA3);
+        communityAdminMap.put(CA4.getUserName(), CA4);
         
         //Patient Nupoor = new Patient(1, "Nupoor","nupoor", "A", "Nupoor", "Korde", "female", 25, "JVue","Cambridge",00004,"Boston");
         

@@ -185,7 +185,7 @@ public class ViewInfo extends javax.swing.JFrame {
             }
         cp.show();
         }
-        else if(labelTableDisplay.getText() == "DOCTOR"){
+        else if(labelTableDisplay.getText() == "Doctors"){
             this.hide();
             CreateDoctor cdoc = new CreateDoctor();
             for(int i=0;i<cityList.size();i++) {
@@ -193,7 +193,7 @@ public class ViewInfo extends javax.swing.JFrame {
             }
             cdoc.show();
         }
-        else if(labelTableDisplay.getText() == "COMMUNITY ADMIN"){
+        else if(labelTableDisplay.getText() == "Community Admin"){
             this.hide();
             CommunityAdminForm caf = new CommunityAdminForm();
             for(int i=0;i<cityList.size();i++) {

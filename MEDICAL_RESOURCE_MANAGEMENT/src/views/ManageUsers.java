@@ -163,13 +163,13 @@ public class ManageUsers extends javax.swing.JFrame {
         ViewInfo view = new ViewInfo();
         view.labelTableDisplay.setText("Community Admin");
         String[] columnNames = {"Name", "Community", "City"};
-        String[][] rows = new String[doctorMap.size()][3];
+        String[][] rows = new String[communityAdminMap.size()][3];
 
         int i = 0;
         for (HashMap.Entry<String, CommunityAdmin> set : communityAdminMap.entrySet()) {
             rows[i][0] = set.getValue().getUserName();
             rows[i][1] = set.getValue().getCommunityName();
-            rows[i][1] = set.getValue().getCityName();            
+            rows[i][2] = set.getValue().getCityName();            
             i++;
         }
 
