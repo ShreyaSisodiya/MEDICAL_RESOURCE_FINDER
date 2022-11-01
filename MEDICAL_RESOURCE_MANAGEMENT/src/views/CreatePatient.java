@@ -281,13 +281,21 @@ public class CreatePatient extends javax.swing.JFrame {
     private void buttonSavePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSavePatientActionPerformed
         // TODO add your handling code here: 
         User user = new User(textPatientUserName.getText(), passwordFieldPatient.getText(),"Patient");
-        userMap.put(textPatientUserName.getText(), user);
+        
         Patient p = new Patient(Integer.parseInt(textPatientID.getText()), textPatientUserName.getText(), passwordFieldPatient.getText(),
                 textHospitalName.getText(), textPatientFirstName.getText(), textPatientLastName.getText(), comboGender.getSelectedItem().toString(),
                 Integer.parseInt(textPatientAge.getText()),textPatientHouse.getText(), comboCommunity.getSelectedItem().toString(), 
                 Integer.parseInt(textPinPatient.getText()), comboCity.getSelectedItem().toString());
-        
-        patientMap.put(p.getPatientUserName(), p);
+        if(patientMap.containsKey(textPatientUserName.getText()))
+        {
+            patientMap.put(p.getPatientUserName(), p);
+            userMap.put(textPatientUserName.getText(), user);
+        }
+        else
+        {
+            patientMap.put(p.getPatientUserName(), p);
+            userMap.put(user.getUserName(), user);
+        }
         this.hide();
         LoginForm logform = new LoginForm();
         logform.show();

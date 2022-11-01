@@ -142,7 +142,7 @@ public class ManageUsers extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewInfo view = new ViewInfo();
         view.labelTableDisplay.setText("Doctors");
-        String[] columnNames = {"Name", "Hospital Name", "Community", "City"};
+        String[] columnNames = {"Doctor ID","Name", "Hospital Name", "Community", "City"};
         String[][] rows = new String[doctorMap.size()][4];
 
         int i = 0;

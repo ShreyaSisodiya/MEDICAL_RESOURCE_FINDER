@@ -196,13 +196,14 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         this.hide();
         ViewInfo view = new ViewInfo();
         view.labelTableDisplay.setText(buttonManageHospitals.getText());
-        String[] columnNames = {"HospitalName", "City", "Community Name"};
-        String[][] rows = new String[hospitalMap.size()][3];
+        String[] columnNames = {"Hospital ID","HospitalName", "City", "Community Name"};
+        String[][] rows = new String[hospitalMap.size()][4];
         int i = 0;
         for(HashMap.Entry<String, Hospital>set:hospitalMap.entrySet()){
-            rows[i][0] = set.getValue().getHospitalName();
-            rows[i][1] = set.getValue().getCityName();
-            rows[i][2] = set.getValue().getCommunityName();
+            rows[i][0] = Integer.toString(set.getValue().getHospitalID());
+            rows[i][1] = set.getValue().getHospitalName();
+            rows[i][2] = set.getValue().getCityName();
+            rows[i][3] = set.getValue().getCommunityName();
             
             i++;
         }
