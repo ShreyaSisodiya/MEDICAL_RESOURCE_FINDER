@@ -4,9 +4,15 @@
  */
 package views;
 
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.userMap;
+import models.Community;
 import models.Doctor;
+import models.Hospital;
 import models.User;
 
 /**
@@ -58,6 +64,7 @@ public class CreateDoctor extends javax.swing.JFrame {
         pwdDoctor = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         textLName = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +101,6 @@ public class CreateDoctor extends javax.swing.JFrame {
 
         jLabel6.setText("CITY");
 
-        comboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CITY" }));
         comboCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCityActionPerformed(evt);
@@ -103,7 +109,7 @@ public class CreateDoctor extends javax.swing.JFrame {
 
         jLabel7.setText("COMMUNITY ");
 
-        comboCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMMUNITY", " " }));
+        comboCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " " }));
         comboCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCommunityActionPerformed(evt);
@@ -132,16 +138,23 @@ public class CreateDoctor extends javax.swing.JFrame {
             }
         });
 
-        comboHospital.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboHospital.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jLabel8.setText("SET PASSWORD");
 
         jLabel11.setText("LAST NAME");
 
-        textLName.setText("jTextField1");
         textLName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textLNameActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -149,15 +162,6 @@ public class CreateDoctor extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(300, 300, 300)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(buttondocSave)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +218,16 @@ public class CreateDoctor extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(textDocUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(79, 79, 79))))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(212, 212, 212)
+                .addComponent(buttondocSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(125, 125, 125))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,9 +270,11 @@ public class CreateDoctor extends javax.swing.JFrame {
                     .addComponent(pwdDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(buttondocSave)
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttondocSave)
+                    .addComponent(jButton1))
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,34 +305,59 @@ public class CreateDoctor extends javax.swing.JFrame {
 
     private void comboCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCityActionPerformed
         // TODO add your handling code here:
+        comboCommunity.removeAllItems();
+        for (HashMap.Entry<String, Community> set : communityMap.entrySet()) {
+            String cityName = set.getValue().getCityName();
+            if(comboCity.getSelectedItem().toString().equals(cityName)) {
+                comboCommunity.addItem(set.getValue().getCommunityName());
+            }
+        }
     }//GEN-LAST:event_comboCityActionPerformed
 
     private void comboCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCommunityActionPerformed
         // TODO add your handling code here:
+        comboHospital.removeAllItems();
+        if(comboCommunity.getSelectedItem() != null) {
+            for (HashMap.Entry<Integer, Hospital> set : hospitalMap.entrySet()) {
+                String comName = set.getValue().getCommunityName();
+                if(comboCommunity.getSelectedItem().toString().equals(comName)) {
+                    comboHospital.addItem(set.getValue().getHospitalName());
+                }
+            }
+        }
     }//GEN-LAST:event_comboCommunityActionPerformed
 
     private void buttondocSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttondocSaveActionPerformed
         // TODO add your handling code here:
-        User user = new User(textDocUserName.getText(), pwdDoctor.getText(),"Doctor");
-        userMap.put(textDocUserName.getText(), user);
-        Doctor dr = new Doctor(comboHospital.getSelectedItem().toString(),textDocFName.getText(), 
-                textLName.getText(),
-                comboDocGender.getSelectedItem().toString(),Integer.parseInt(textDocAge.getText()),
-                textDocHouse.getText(),
-                comboCommunity.getSelectedItem().toString(), 
-                Integer.parseInt(textPin.getText()), 
-                comboCity.getSelectedItem().toString());
-        
-        if(doctorMap.containsKey(textDocUserName.getText())) {
-            doctorMap.replace(dr.getUserName(), dr);
-            userMap.replace(user.getUserName(), user);
+        try
+        {
+            User user = new User(textDocUserName.getText(), pwdDoctor.getText(),"Doctor");
+            userMap.put(textDocUserName.getText(), user);
+            Doctor dr = new Doctor(comboHospital.getSelectedItem().toString(),
+                    textDocFName.getText(), 
+                    textLName.getText(),
+                    comboDocGender.getSelectedItem().toString(),Integer.parseInt(textDocAge.getText()),
+                    textDocHouse.getText(),
+                    comboCommunity.getSelectedItem().toString(), 
+                    Integer.parseInt(textPin.getText()), 
+                    comboCity.getSelectedItem().toString());
+
+            if(doctorMap.containsKey(textDocUserName.getText())) 
+            {
+                doctorMap.replace(dr.getUserName(), dr);
+                userMap.replace(user.getUserName(), user);
+            }
+            doctorMap.put(dr.getUserName(), dr);
+            userMap.put(user.getUserName(), user);
+            this.hide();
+            ManageUsers mu = new ManageUsers();
+            mu.show();
         }
-        doctorMap.put(dr.getUserName(), dr);
-        userMap.put(user.getUserName(), user);
-        this.hide();
-        ManageUsers mu = new ManageUsers();
-        mu.show();
-  
+        catch(Exception e)
+        {
+                    this.show();
+                    JOptionPane.showMessageDialog(this, "Insert appropriate details.");
+        }
     }//GEN-LAST:event_buttondocSaveActionPerformed
 
     private void textDocHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDocHouseActionPerformed
@@ -326,6 +367,13 @@ public class CreateDoctor extends javax.swing.JFrame {
     private void textLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textLNameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        ViewCommunityAdmin vca = new ViewCommunityAdmin();
+        vca.show();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,6 +416,7 @@ public class CreateDoctor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboCommunity;
     private javax.swing.JComboBox<String> comboDocGender;
     private javax.swing.JComboBox<String> comboHospital;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

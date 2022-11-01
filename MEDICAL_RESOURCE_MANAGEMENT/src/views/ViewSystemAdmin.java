@@ -152,7 +152,7 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
             rows[i][1] = set.getValue().getCommunityName();
             i++;
         }
-         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
+        DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplay.setModel(dtm);
         view.buttonEditInfo.setVisible(false);
         view.buttonDeleteInfo.setVisible(false);
@@ -199,7 +199,7 @@ public class ViewSystemAdmin extends javax.swing.JFrame {
         String[] columnNames = {"Hospital ID","HospitalName", "City", "Community Name"};
         String[][] rows = new String[hospitalMap.size()][4];
         int i = 0;
-        for(HashMap.Entry<String, Hospital>set:hospitalMap.entrySet()){
+        for(HashMap.Entry<Integer, Hospital>set:hospitalMap.entrySet()){
             rows[i][0] = Integer.toString(set.getValue().getHospitalID());
             rows[i][1] = set.getValue().getHospitalName();
             rows[i][2] = set.getValue().getCityName();

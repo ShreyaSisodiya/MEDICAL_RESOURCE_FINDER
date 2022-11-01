@@ -4,8 +4,13 @@
  */
 package views;
 
+import java.text.SimpleDateFormat;
+import javax.swing.table.DefaultTableModel;
 import medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.docName;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.docUserName;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.encounters;
 
 /**
  *
@@ -40,7 +45,6 @@ public class ViewDoctor extends javax.swing.JFrame {
         labelDocWelcome = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         buttonLog = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jld = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,7 +52,7 @@ public class ViewDoctor extends javax.swing.JFrame {
         labelDocWelcome.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         labelDocWelcome.setText("WELCOME DOCTOR");
 
-        jButton1.setText("ENCOUNTER");
+        jButton1.setText("ENCOUNTERS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -56,8 +60,11 @@ public class ViewDoctor extends javax.swing.JFrame {
         });
 
         buttonLog.setText("LOG OUT");
-
-        jButton2.setText("CREATE ENCOUNTER");
+        buttonLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLogActionPerformed(evt);
+            }
+        });
 
         jld.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jld.setText("jLabel1");
@@ -79,9 +86,7 @@ public class ViewDoctor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(jld)))
@@ -96,9 +101,7 @@ public class ViewDoctor extends javax.swing.JFrame {
                 .addComponent(jld)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(48, 48, 48)
-                .addComponent(jButton2)
-                .addGap(98, 98, 98)
+                .addGap(169, 169, 169)
                 .addComponent(buttonLog)
                 .addGap(53, 53, 53))
         );
@@ -119,7 +122,39 @@ public class ViewDoctor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        ViewInfoDoctor vid = new ViewInfoDoctor();
+        vid.jLabel1.setText("ENCOUNTERS");
+        //System.out.println(docUserName);
+        //System.out.println(doctorMap.get(docUserName).getCityName());
+        int id = doctorMap.get(docUserName).getDoctorID();
+        
+        DefaultTableModel dtm = (DefaultTableModel) vid.tableDoctor.getModel();
+            for(int i=0;i<encounters.size();i++){
+               
+            if(encounters.get(i).getDoctorID() == id) {
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                String s = formatter.format(encounters.get(i).getDate());
+                String data[] = {Integer.toString(encounters.get(i).getPatientID()), 
+                    encounters.get(i).getPatientName(), 
+                    
+                    s, 
+                    Float.toString(encounters.get(i).getBloodPressure()), 
+                    
+                    Float.toString(encounters.get(i).getHeartRate()), 
+                    Float.toString(encounters.get(i).getTemperature())};
+                dtm.addRow(data);
+            }
+        }
+        vid.show();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void buttonLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        LoginForm logform = new LoginForm();
+        logform.show();
+    }//GEN-LAST:event_buttonLogActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,7 +194,6 @@ public class ViewDoctor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLog;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jld;
     private javax.swing.JLabel labelDocWelcome;

@@ -149,7 +149,7 @@ public class CreateHospitalCommunity extends javax.swing.JFrame {
         Hospital h = new Hospital(textHospitalName.getText(), Integer.parseInt(textHospID.getText()),
                 MEDICAL_RESOURCE_MANAGEMENT.comName, Integer.parseInt(textPinHospital.getText()),
                                   MEDICAL_RESOURCE_MANAGEMENT.citiesName);
-        hospitalMap.put(h.getHospitalName(), h);
+        hospitalMap.put(h.getHospitalID(), h);
         this.hide();
         ViewCommunityAdmin vca = new ViewCommunityAdmin();
         vca.show();

@@ -14,18 +14,20 @@ public class Doctor extends Person
     private int doctorID;
     private String userName;
 
-    public Doctor(String hospitalName, int doctorID, String userName, String firstName, String lastName, String gender, int age, String houseName, String communityName, int pinCode, String cityName) {
+    public Doctor(String hospitalName, int doctorID, String userName, String firstName, String lastName, String gender, int age, 
+            String houseName, String communityName, int pinCode, String cityName) 
+    {
         super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
         this.setHospitalName(hospitalName);
         this.setDoctorID(doctorID);
         this.setUserName(userName);
     }
 
-//    public Doctor(String hospitalName, String firstName, String lastName, String gender, int age, String houseName, 
-//            String communityName, int pinCode, String cityName) 
-//    {
-//        super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
-//        this.setHospitalName(hospitalName);
+    public Doctor(String hospitalName, String firstName, String lastName, String gender, int age, String houseName, 
+            String communityName, int pinCode, String cityName) 
+    {
+        super(firstName, lastName, gender, age, houseName, communityName, pinCode, cityName);
+        this.setHospitalName(hospitalName);
     }
     
     public String getHospitalName()

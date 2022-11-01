@@ -262,8 +262,7 @@ public class ViewInfo extends javax.swing.JFrame {
 
     private void buttonEditInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditInfoActionPerformed
         // TODO add your handling code here:
-        
-        
+    
         if(labelTableDisplay.getText().equals("Doctors"))
         {
             DefaultTableModel dtm = (DefaultTableModel) tableDisplay.getModel();
@@ -346,7 +345,7 @@ public class ViewInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCreateTable;
+    public javax.swing.JButton buttonCreateTable;
     public javax.swing.JButton buttonDeleteInfo;
     public javax.swing.JButton buttonEditInfo;
     private javax.swing.JButton buttonTableBack;

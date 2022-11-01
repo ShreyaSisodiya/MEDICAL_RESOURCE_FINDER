@@ -4,6 +4,7 @@
  */
 package views;
 
+import javax.swing.JOptionPane;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
 import models.Community;
 
@@ -138,14 +139,21 @@ public class CreateCommunity extends javax.swing.JFrame {
 
     private void buttonCommunitySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommunitySaveActionPerformed
         // TODO add your handling code here:
-        Community c = new Community(textCommunityName.getText(), 
-                Integer.parseInt(textPin.getText()),
-                comboCity.getSelectedItem().toString());
-        
-        communityMap.put(c.getCommunityName(), c);
-        this.hide();
-        ViewSystemAdmin vsa = new ViewSystemAdmin();
-        vsa.show();
+        try
+        {
+            Community c = new Community(textCommunityName.getText(), 
+                    Integer.parseInt(textPin.getText()),
+                    comboCity.getSelectedItem().toString());
+            communityMap.put(c.getCommunityName(), c);
+            this.hide();
+            ViewSystemAdmin vsa = new ViewSystemAdmin();
+            vsa.show();
+        }
+        catch(Exception e)
+        {
+            this.show();
+            JOptionPane.showMessageDialog(this, "Insert appropriate details.");
+        }
     }//GEN-LAST:event_buttonCommunitySaveActionPerformed
 
     private void buttonBackCreateCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackCreateCommActionPerformed

@@ -5,9 +5,12 @@
 package views;
 
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
 import models.Community;
+import models.Doctor;
 import models.Hospital;
 
 /**
@@ -187,13 +190,65 @@ public class CreateHospital extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Hospital h = new Hospital(textHospitalName.getText(),Integer.parseInt(txtHospitalID.getText()), 
-                comboCommunity.getSelectedItem().toString(),
-                Integer.parseInt(textPinHospital.getText()), comboCity.getSelectedItem().toString());
-        hospitalMap.put(h.getHospitalName(), h);
+        try
+        {
+            this.hide();
+            int flag = 0;
+            Hospital h = new Hospital(textHospitalName.getText(),
+                    Integer.parseInt(txtHospitalID.getText()), 
+                    comboCommunity.getSelectedItem().toString(),
+                    Integer.parseInt(textPinHospital.getText()), 
+                    comboCity.getSelectedItem().toString());
+            if(hospitalMap.containsKey(Integer.parseInt(txtHospitalID.getText())))
+            {
+                hospitalMap.replace(Integer.parseInt(txtHospitalID.getText()), h);
+                flag = 1;
+            }
+            else
+            {
+                hospitalMap.put(h.getHospitalID(), h);
+            }
+            if(flag ==1)
+            {
+                String name = hospitalMap.get(Integer.parseInt(txtHospitalID.getText())).getHospitalName();
+                for(HashMap.Entry<String, Doctor> set1 : doctorMap.entrySet())
+                {
+                    if(set1.getValue().getHospitalName().equals(name))
+                    {
+                        doctorMap.replace(set1.getKey(),
+                              new Doctor(set1.getValue().getHospitalName(),
+                                      set1.getValue().getDoctorID(),
+                                      set1.getValue().getUserName(),
+                                      set1.getValue().getFirstName(),
+                                      set1.getValue().getLastName(),
+                                      set1.getValue().getGender(),
+                                      set1.getValue().getAge(),
+                                      set1.getValue().getHouseName(),
+                                      set1.getValue().getCommunityName(),
+                                      set1.getValue().getPinCode(),
+                                      set1.getValue().getCityName()));
+                    }
+                }
+                
+            }
+            ViewSystemAdmin vsa = new ViewSystemAdmin();
+            vsa.show();
+        
+        Hospital hosp = new Hospital(textHospitalName.getText(),
+                    Integer.parseInt(txtHospitalID.getText()), 
+                    comboCommunity.getSelectedItem().toString(),
+                    Integer.parseInt(textPinHospital.getText()), 
+                    comboCity.getSelectedItem().toString());
+        
         this.hide();
-        ViewSystemAdmin vsa = new ViewSystemAdmin();
-        vsa.show();
+        ViewSystemAdmin vs = new ViewSystemAdmin();
+        vs.show();
+        }
+        
+        catch(Exception e){
+            this.show();
+            JOptionPane.showMessageDialog(this, "Insert appropriate details.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void comboCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCityActionPerformed

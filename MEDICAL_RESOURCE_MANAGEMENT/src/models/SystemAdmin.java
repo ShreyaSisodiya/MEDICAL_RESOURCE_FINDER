@@ -12,8 +12,5 @@ import views.CreateCity;
  */
 public class SystemAdmin 
 {
-    static void createCity()
-    {
-        CreateCity cc = new CreateCity();
-    }
+  
 }

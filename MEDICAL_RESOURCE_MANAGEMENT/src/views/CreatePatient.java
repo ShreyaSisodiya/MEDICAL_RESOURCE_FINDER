@@ -280,6 +280,7 @@ public class CreatePatient extends javax.swing.JFrame {
 
     private void buttonSavePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSavePatientActionPerformed
         // TODO add your handling code here: 
+        
         User user = new User(textPatientUserName.getText(), passwordFieldPatient.getText(),"Patient");
         
         Patient p = new Patient(Integer.parseInt(textPatientID.getText()), textPatientUserName.getText(), passwordFieldPatient.getText(),
@@ -305,9 +306,12 @@ public class CreatePatient extends javax.swing.JFrame {
 
     private void buttonBackPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackPatientActionPerformed
         // TODO add your handling code here:
+//        this.hide();
+//        ViewSystemAdmin vsa = new ViewSystemAdmin();
+//        vsa.show();
         this.hide();
-        ViewSystemAdmin vsa = new ViewSystemAdmin();
-        vsa.show();
+        LoginForm logform = new LoginForm();
+        logform.show();     
     }//GEN-LAST:event_buttonBackPatientActionPerformed
 
     private void textHospitalNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textHospitalNameActionPerformed
@@ -371,7 +375,7 @@ public class CreatePatient extends javax.swing.JFrame {
     private javax.swing.JButton buttonSavePatient;
     public javax.swing.JComboBox<String> comboCity;
     private javax.swing.JComboBox<String> comboCommunity;
-    private javax.swing.JComboBox<String> comboGender;
+    public javax.swing.JComboBox<String> comboGender;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

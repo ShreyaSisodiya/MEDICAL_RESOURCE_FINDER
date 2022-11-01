@@ -158,7 +158,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         String[] columnNames = {"Hospital ID","HospitalName", "City", "Community Name"};
         String[][] rows = new String[hospitalMap.size()][4];
         int i = 0;
-        for(HashMap.Entry<String, Hospital>set:hospitalMap.entrySet()){
+        for(HashMap.Entry<Integer, Hospital>set:hospitalMap.entrySet()){
             rows[i][0] = Integer.toString(set.getValue().getHospitalID());
             rows[i][1] = set.getValue().getHospitalName();
             rows[i][2] = set.getValue().getCityName();
@@ -169,6 +169,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplayCommunity.setModel(dtm);
+        view.buttonDeleteComm.setVisible(false);
         view.show();
     }//GEN-LAST:event_buttonMHActionPerformed
 
@@ -189,7 +190,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplayCommunity.setModel(dtm);
         view.buttonCreateTable.setVisible(false);
-        view.buttonEditComm.setVisible(false);
+        //view.buttonEditComm.setVisible(false);
         view.buttonDeleteComm.setVisible(false);
         view.show();  
     }//GEN-LAST:event_buttonViewPatientsActionPerformed
@@ -213,6 +214,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         }
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplayCommunity.setModel(dtm);
+        view.buttonDeleteComm.setVisible(false);
         view.show();         
     }//GEN-LAST:event_buttonManageHousesActionPerformed
 
@@ -241,7 +243,7 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplayCommunity.setModel(dtm);
         view.buttonCreateTable.setVisible(false);
-        view.buttonEditComm.setVisible(false);
+        //view.buttonEditComm.setVisible(false);
         view.buttonDeleteComm.setVisible(false);
         view.show(); 
     }//GEN-LAST:event_buttonViewDoctorsActionPerformed

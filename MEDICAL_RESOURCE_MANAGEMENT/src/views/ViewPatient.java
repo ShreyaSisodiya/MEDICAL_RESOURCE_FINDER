@@ -4,10 +4,17 @@
  */
 package views;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 import medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.encounters;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.patUserName;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.patientMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
+import models.Hospital;
 import models.Patient;
 
 /**
@@ -39,7 +46,8 @@ public class ViewPatient extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         buttonLogPatient = new javax.swing.JButton();
         buttonViewEncounter = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,17 +62,24 @@ public class ViewPatient extends javax.swing.JFrame {
             }
         });
 
-        buttonViewEncounter.setText("VIEW ENCOUNTERS");
+        buttonViewEncounter.setText("ENCOUNTER HISTORY");
         buttonViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonViewEncounterActionPerformed(evt);
             }
         });
 
-        jButton1.setText("EDIT PATIENT PROFILE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("EDIT PROFILE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("SEARCH HOSPITALS");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -72,10 +87,6 @@ public class ViewPatient extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonLogPatient)
-                .addGap(77, 77, 77))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -83,10 +94,19 @@ public class ViewPatient extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(74, 74, 74)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonViewEncounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(154, Short.MAX_VALUE))
+                        .addComponent(buttonViewEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(jButton3)))
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(buttonLogPatient)
+                        .addGap(77, 77, 77))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,10 +114,12 @@ public class ViewPatient extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
                 .addGap(62, 62, 62)
-                .addComponent(buttonViewEncounter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonViewEncounter)
+                    .addComponent(jButton3))
+                .addGap(56, 56, 56)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(buttonLogPatient)
                 .addGap(61, 61, 61))
         );
@@ -125,39 +147,69 @@ public class ViewPatient extends javax.swing.JFrame {
 
     private void buttonViewEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewEncounterActionPerformed
         // TODO add your handling code here:
+        ViewInfoPatient vip = new ViewInfoPatient();
+        int id = patientMap.get(patUserName).getPatientID();
         
+        DefaultTableModel model = (DefaultTableModel) vip.tableDisplayPatient.getModel();
+        
+        for(int i=0;i<encounters.size();i++){
+            if(encounters.get(i).getPatientID() == id) {
+                Format formatter = new SimpleDateFormat("MM/dd/yyyy");
+                String s = formatter.format(encounters.get(i).getDate());
+                String data[] = {encounters.get(i).getDoctorName(),
+                    encounters.get(i).getHospitalName(), 
+                    s, 
+                    Float.toString(encounters.get(i).getBloodPressure()), 
+                    Float.toString(encounters.get(i).getHeartRate()),
+                    Float.toString(encounters.get(i).getTemperature())};
+                model.addRow(data);
+            }
+        }
+        vip.show();
     }//GEN-LAST:event_buttonViewEncounterActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        if(labelTableDisplay.getText().equals("Patients"))
-//        {
-//        DefaultTableModel dtm = (DefaultTableModel) tableDisplay.getModel();
-//        int id = Integer.parseInt(tableDisplay.getValueAt(tableDisplay.getSelectedRow(), 0).toString());
-//        if(tableDisplay.getSelectedRowCount() == 1)
-//        {
-//            CreatePatient cp = new CreatePatient();
-//            for (HashMap.Entry<String, Patient> set : patientMap.entrySet())
-//            {
-//                if(set.getValue().getPatientID() == id)
-//                {
-//                    cp.show();
-//                    
-//                    cp.textPatientFirstName.setText(set.getValue().getFirstName());
-//                    cp.textPatientUserName.setText(set.getValue().getPatientUserName());
-//                    
-//                    cp.textPatientAge.setText(Integer.toString(set.getValue().getAge()));
-//              
-//                    cp.textPatientLastName.setText(set.getValue().getLastName());
-//                    cp.textPatientHouse.setText(set.getValue().getHouseName());
-//                    //cp.tfDrID.setText(Integer.toString(id));
-//                    cp.textPinPatient.setText(Integer.toString(set.getValue().getPinCode()));
-//                }
-//            }
-//            
-//        }
-//        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        CreatePatient cp = new CreatePatient();
+            
+            for (HashMap.Entry<String, Patient> set : patientMap.entrySet())
+            {
+                if(patUserName.equals(set.getValue().getPatientUserName()))
+                {
+                    cp.show();
+                    for(int i=0;i<cityList.size();i++) 
+                    {
+                        cp.comboCity.addItem(cityList.get(i));
+                    }              
+                    cp.textPatientFirstName.setText(set.getValue().getFirstName());
+                    cp.textPatientUserName.setText(set.getValue().getPatientUserName());
+                    
+                    cp.textPatientAge.setText(Integer.toString(set.getValue().getAge()));
+                   
+                    cp.textPatientLastName.setText(set.getValue().getLastName());
+                    cp.textPatientHouse.setText(set.getValue().getHouseName());
+                    
+                    cp.textPinPatient.setText(Integer.toString(set.getValue().getPinCode()));
+                }   
+            }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FindDoctors fd = new FindDoctors();
+        fd.jLabel2.setText(patientMap.get(patUserName).getCommunityName());
+        for (HashMap.Entry<Integer, Hospital> set : hospitalMap.entrySet())
+        {
+            if(set.getValue()
+                    .getCommunityName()
+                    .equals(patientMap
+                            .get(patUserName)
+                            .getCommunityName())) {
+                fd.comboHospital.addItem(set.getValue().getHospitalName());
+            }
+        }
+        fd.show();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +249,8 @@ public class ViewPatient extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLogPatient;
     private javax.swing.JButton buttonViewEncounter;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -128,6 +128,7 @@ public class ManageUsers extends javax.swing.JFrame {
         view.tableDisplay.setModel(dtm);
         view.buttonEditInfo.setVisible(false);
         view.buttonDeleteInfo.setVisible(false); 
+        view.buttonCreateTable.setVisible(false);
         view.show();       
     }//GEN-LAST:event_buttonPatientTypeActionPerformed
 
@@ -143,20 +144,23 @@ public class ManageUsers extends javax.swing.JFrame {
         ViewInfo view = new ViewInfo();
         view.labelTableDisplay.setText("Doctors");
         String[] columnNames = {"Doctor ID","Name", "Hospital Name", "Community", "City"};
-        String[][] rows = new String[doctorMap.size()][4];
+        String[][] rows = new String[doctorMap.size()][5];
 
         int i = 0;
         for (HashMap.Entry<String, Doctor> set : doctorMap.entrySet()) {
-            rows[i][0] = set.getValue().getFirstName();
-            rows[i][1] = set.getValue().getHospitalName();
-            rows[i][2] = set.getValue().getCityName();
+            rows[i][0] = Integer.toString(set.getValue().getDoctorID());
+            rows[i][1] = set.getValue().getFirstName();
+            rows[i][2] = set.getValue().getHospitalName();
             rows[i][3] = set.getValue().getCommunityName();
+            rows[i][4] = set.getValue().getCityName();
             
             i++;
         }
 
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplay.setModel(dtm);
+        view.buttonEditInfo.setVisible(false);
+
         view.show();
     }//GEN-LAST:event_buttonDoctorTypeActionPerformed
 

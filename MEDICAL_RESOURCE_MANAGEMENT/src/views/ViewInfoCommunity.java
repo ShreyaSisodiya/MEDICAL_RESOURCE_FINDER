@@ -33,7 +33,6 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
         tableDisplayCommunity = new javax.swing.JTable();
         labelTableDisplay = new javax.swing.JLabel();
         buttonCreateTable = new javax.swing.JButton();
-        buttonEditComm = new javax.swing.JButton();
         buttonDeleteComm = new javax.swing.JButton();
         buttonTableBackComm = new javax.swing.JButton();
 
@@ -41,10 +40,7 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
 
         tableDisplayCommunity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -60,13 +56,6 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
         buttonCreateTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCreateTableActionPerformed(evt);
-            }
-        });
-
-        buttonEditComm.setText("EDIT");
-        buttonEditComm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditCommActionPerformed(evt);
             }
         });
 
@@ -93,11 +82,9 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(buttonCreateTable)
-                        .addGap(60, 60, 60)
-                        .addComponent(buttonEditComm)
-                        .addGap(70, 70, 70)
+                        .addGap(140, 140, 140)
                         .addComponent(buttonDeleteComm)
-                        .addGap(70, 70, 70)
+                        .addGap(132, 132, 132)
                         .addComponent(buttonTableBackComm))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
@@ -115,7 +102,6 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCreateTable)
-                    .addComponent(buttonEditComm)
                     .addComponent(buttonDeleteComm)
                     .addComponent(buttonTableBackComm))
                 .addGap(35, 35, 35))
@@ -150,10 +136,10 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
             CreateHouse ch = new CreateHouse();
             ch.show();
         }
-        else if (labelTableDisplay.getText().equals("VIEW PATIENTS"))
-        {
-            buttonCreateTable.setVisible(false);
-        }
+//        else if (labelTableDisplay.getText().equals("VIEW PATIENTS"))
+//        {
+//            buttonCreateTable.setVisible(false);
+//        }
     }//GEN-LAST:event_buttonCreateTableActionPerformed
 
     private void buttonDeleteCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteCommActionPerformed
@@ -166,10 +152,6 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
         ViewCommunityAdmin vca = new ViewCommunityAdmin();
         vca.show();
     }//GEN-LAST:event_buttonTableBackCommActionPerformed
-
-    private void buttonEditCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditCommActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEditCommActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,7 +191,6 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton buttonCreateTable;
     public javax.swing.JButton buttonDeleteComm;
-    public javax.swing.JButton buttonEditComm;
     private javax.swing.JButton buttonTableBackComm;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

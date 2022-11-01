@@ -4,8 +4,12 @@
  */
 package views;
 
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityAdminMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.userMap;
+import models.Community;
 import models.CommunityAdmin;
 import models.User;
 
@@ -45,9 +49,10 @@ public class CommunityAdminForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         pwd = new javax.swing.JPasswordField();
         buttonCommAdminSave = new javax.swing.JButton();
-        textNameCommunity = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         textPin = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        comboCommunity = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +80,12 @@ public class CommunityAdminForm extends javax.swing.JFrame {
 
         jLabel6.setText("CITY");
 
+        comboCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCityActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("COMMUNITY");
 
         jLabel8.setText("SET PASSWORD");
@@ -95,6 +106,14 @@ public class CommunityAdminForm extends javax.swing.JFrame {
 
         jLabel1.setText("PIN CODE");
 
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -102,15 +121,14 @@ public class CommunityAdminForm extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(160, 160, 160)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
-                                        .addGap(0, 11, Short.MAX_VALUE))
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -120,15 +138,19 @@ public class CommunityAdminForm extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonCommAdminSave)
                             .addComponent(textCommName)
                             .addComponent(comboGender, 0, 211, Short.MAX_VALUE)
                             .addComponent(textUserComm)
                             .addComponent(comboCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pwd)
-                            .addComponent(textNameCommunity)
-                            .addComponent(textPin))))
-                .addContainerGap(160, Short.MAX_VALUE))
+                            .addComponent(textPin)
+                            .addComponent(comboCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(buttonCommAdminSave)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(82, 82, 82))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,18 +176,20 @@ public class CommunityAdminForm extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(textNameCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                    .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(buttonCommAdminSave)
-                .addGap(50, 50, 50))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCommAdminSave)
+                    .addComponent(jButton1))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,18 +220,48 @@ public class CommunityAdminForm extends javax.swing.JFrame {
 
     private void buttonCommAdminSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommAdminSaveActionPerformed
         // TODO add your handling code here:
-        User user = new User(textCommName.getText(), pwd.getText(),"Community Admin");
-        userMap.put(textCommName.getText(), user);
-        CommunityAdmin ca = new CommunityAdmin(textUserComm.getText(), textCommName.getText(),
+        
+        try
+        {
+            User user = new User(textCommName.getText(), pwd.getText(),"Community Admin");
+            userMap.put(textCommName.getText(), user);
+            CommunityAdmin ca = new CommunityAdmin(textUserComm.getText(), 
+                    textCommName.getText(),
                 comboGender.getSelectedItem().toString(),
-               textNameCommunity.getText(), 
+               comboCommunity.getSelectedItem().toString(), 
                 Integer.parseInt(textPin.getText()),
                 comboCity.getSelectedItem().toString());
-        communityAdminMap.put(ca.getCommName(), ca);
+            communityAdminMap.put(ca.getCommName(), ca);
+            this.hide();
+            ViewSystemAdmin vsa = new ViewSystemAdmin();
+            vsa.show(); 
+        }
+        catch(Exception e)
+        {
+            this.show();
+            JOptionPane.showMessageDialog(this, "Insert appropriate details.");            
+        }
+    }//GEN-LAST:event_buttonCommAdminSaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         this.hide();
         ViewSystemAdmin vsa = new ViewSystemAdmin();
-        vsa.show(); 
-    }//GEN-LAST:event_buttonCommAdminSaveActionPerformed
+        vsa.show();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void comboCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCityActionPerformed
+        // TODO add your handling code here:
+        comboCommunity.removeAllItems();
+        for (HashMap.Entry<String, Community> set : communityMap.entrySet())
+        {
+            String cityName = set.getValue().getCityName();
+            if(comboCommunity.getSelectedItem().toString().equals(cityName)) 
+            {
+                comboCommunity.addItem(set.getValue().getCommunityName());
+            }
+        }
+    }//GEN-LAST:event_comboCityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +301,9 @@ public class CommunityAdminForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCommAdminSave;
     public javax.swing.JComboBox<String> comboCity;
+    private javax.swing.JComboBox<String> comboCommunity;
     private javax.swing.JComboBox<String> comboGender;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,7 +315,6 @@ public class CommunityAdminForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField pwd;
     private javax.swing.JTextField textCommName;
-    private javax.swing.JTextField textNameCommunity;
     private javax.swing.JTextField textPin;
     private javax.swing.JTextField textUserComm;
     // End of variables declaration//GEN-END:variables

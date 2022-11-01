@@ -4,6 +4,7 @@
  */
 package views;
 
+import javax.swing.JOptionPane;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
 import models.City;
 
@@ -110,11 +111,24 @@ public class CreateCity extends javax.swing.JFrame {
 
     private void buttonSaveCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveCityActionPerformed
         // TODO add your handling code here:
+//        City city = new City(textCreateCityName.getText());
+//        cityList.add(city.getCityName());
+//        this.hide();
+//        ViewSystemAdmin vsa = new ViewSystemAdmin();
+//        vsa.show();
+
+try{
         City city = new City(textCreateCityName.getText());
         cityList.add(city.getCityName());
         this.hide();
         ViewSystemAdmin vsa = new ViewSystemAdmin();
         vsa.show();
+        }
+        catch(Exception e){
+            this.show();
+            JOptionPane.showMessageDialog(this, "Please Fill out all the fields with appropriate details.");
+        }
+
     }//GEN-LAST:event_buttonSaveCityActionPerformed
 
     private void buttonBackCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackCityActionPerformed
