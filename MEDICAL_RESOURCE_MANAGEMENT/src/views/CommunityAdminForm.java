@@ -198,8 +198,11 @@ public class CommunityAdminForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         User user = new User(textCommName.getText(), pwd.getText(),"Community Admin");
         userMap.put(textCommName.getText(), user);
-        CommunityAdmin ca = new CommunityAdmin(textUserComm.getText(), textCommName.getText(),comboGender.getSelectedItem().toString(),
-               textNameCommunity.getText(), Integer.parseInt(textPin.getText()),comboCity.getSelectedItem().toString());
+        CommunityAdmin ca = new CommunityAdmin(textUserComm.getText(), textCommName.getText(),
+                comboGender.getSelectedItem().toString(),
+               textNameCommunity.getText(), 
+                Integer.parseInt(textPin.getText()),
+                comboCity.getSelectedItem().toString());
         communityAdminMap.put(ca.getCommName(), ca);
         this.hide();
         ViewSystemAdmin vsa = new ViewSystemAdmin();

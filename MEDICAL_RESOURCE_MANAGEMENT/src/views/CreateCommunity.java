@@ -138,7 +138,8 @@ public class CreateCommunity extends javax.swing.JFrame {
 
     private void buttonCommunitySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommunitySaveActionPerformed
         // TODO add your handling code here:
-        Community c = new Community(textCommunityName.getText(), Integer.parseInt(textPin.getText()),
+        Community c = new Community(textCommunityName.getText(), 
+                Integer.parseInt(textPin.getText()),
                 comboCity.getSelectedItem().toString());
         
         communityMap.put(c.getCommunityName(), c);

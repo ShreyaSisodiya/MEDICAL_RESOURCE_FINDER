@@ -280,7 +280,7 @@ public class ViewInfo extends javax.swing.JFrame {
                         cd.textDocUserName.setText(set.getValue().getUserName());
                         cd.textDocAge.setText(Integer.toString(set.getValue().getAge()));
             //          cd.jcGender.setSelectedItem(doctors.get(id).getGender());
-                        cd.textDocLName.setText(set.getValue().getLastName());
+                        cd.textDocID.setText(set.getValue().getLastName());
                         cd.textDocHouse.setText(set.getValue().getHouseName());
                         //cd.tfDocID.setText(Integer.toString(id));
                         cd.textPin.setText(Integer.toString(set.getValue().getPinCode()));
