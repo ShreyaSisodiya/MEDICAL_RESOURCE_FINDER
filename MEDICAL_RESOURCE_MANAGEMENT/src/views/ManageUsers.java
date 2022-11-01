@@ -126,6 +126,8 @@ public class ManageUsers extends javax.swing.JFrame {
         }
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplay.setModel(dtm);
+        view.buttonEditInfo.setVisible(false);
+        view.buttonDeleteInfo.setVisible(false); 
         view.show();       
     }//GEN-LAST:event_buttonPatientTypeActionPerformed
 
@@ -175,6 +177,8 @@ public class ManageUsers extends javax.swing.JFrame {
 
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplay.setModel(dtm);
+        view.buttonEditInfo.setVisible(false);
+        view.buttonDeleteInfo.setVisible(false); 
         view.show();
     }//GEN-LAST:event_buttonCommAdminTypeActionPerformed
 

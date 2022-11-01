@@ -11,14 +11,12 @@ package models;
 public class Hospital extends Community
 {
     private String hospitalName;
+    private int hospitalID;
 
-    public Hospital(String CommunityName, int pinCode, String cityName) {
-        super(CommunityName, pinCode, cityName);
-    }
-
-    public Hospital(String hospitalName, String CommunityName, int pinCode, String cityName) {
-        super(CommunityName, pinCode, cityName);
+    public Hospital(String hospitalName, int hospitalID, String communityName, int pinCode, String cityName) {
+        super(communityName, pinCode, cityName);
         this.hospitalName = hospitalName;
+        this.hospitalID = hospitalID;
     }
 
     public String getHospitalName() {
@@ -28,5 +26,15 @@ public class Hospital extends Community
     public void setHospitalName(String hospitalName) {
         this.hospitalName = hospitalName;
     }
+
+    public int getHospitalID() {
+        return hospitalID;
+    }
+
+    public void setHospitalID(int hospitalID) {
+        this.hospitalID = hospitalID;
+    }
+
     
+
 }

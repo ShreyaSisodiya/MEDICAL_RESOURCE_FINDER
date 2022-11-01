@@ -59,6 +59,7 @@ public class ViewDoctor extends javax.swing.JFrame {
 
         jButton2.setText("CREATE ENCOUNTER");
 
+        jld.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jld.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -93,7 +94,7 @@ public class ViewDoctor extends javax.swing.JFrame {
                 .addComponent(labelDocWelcome)
                 .addGap(31, 31, 31)
                 .addComponent(jld)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(48, 48, 48)
                 .addComponent(jButton2)

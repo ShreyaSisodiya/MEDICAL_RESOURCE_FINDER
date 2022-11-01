@@ -4,10 +4,16 @@
  */
 package models;
 
+import views.CreateCity;
+
 /**
  *
  * @author shreyasisodiya
  */
-public class SystemAdmin {
-    
+public class SystemAdmin 
+{
+    static void createCity()
+    {
+        CreateCity cc = new CreateCity();
+    }
 }

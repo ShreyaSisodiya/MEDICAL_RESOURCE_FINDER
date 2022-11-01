@@ -33,8 +33,5 @@ public class Community extends City
 
     public void setPinCode(int pinCode) {
         this.pinCode = pinCode;
-    }
-    
-    
-    
+    }  
 }

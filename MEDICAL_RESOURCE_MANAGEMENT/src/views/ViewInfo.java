@@ -4,8 +4,16 @@
  */
 package views;
 
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static javax.swing.text.html.HTML.Attribute.ID;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.patientMap;
+import models.Doctor;
+import models.Patient;
 
 /**
  *
@@ -35,7 +43,7 @@ public class ViewInfo extends javax.swing.JFrame {
         tableDisplay = new javax.swing.JTable();
         labelTableDisplay = new javax.swing.JLabel();
         buttonCreateTable = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonEditInfo = new javax.swing.JButton();
         buttonDeleteInfo = new javax.swing.JButton();
         buttonTableBack = new javax.swing.JButton();
 
@@ -65,7 +73,12 @@ public class ViewInfo extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("EDIT");
+        buttonEditInfo.setText("EDIT");
+        buttonEditInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditInfoActionPerformed(evt);
+            }
+        });
 
         buttonDeleteInfo.setText("DELETE");
         buttonDeleteInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +105,7 @@ public class ViewInfo extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(buttonCreateTable)
                         .addGap(60, 60, 60)
-                        .addComponent(jButton2)
+                        .addComponent(buttonEditInfo)
                         .addGap(70, 70, 70)
                         .addComponent(buttonDeleteInfo)
                         .addGap(70, 70, 70)
@@ -112,7 +125,7 @@ public class ViewInfo extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCreateTable)
-                    .addComponent(jButton2)
+                    .addComponent(buttonEditInfo)
                     .addComponent(buttonDeleteInfo)
                     .addComponent(buttonTableBack))
                 .addGap(35, 35, 35))
@@ -206,7 +219,96 @@ public class ViewInfo extends javax.swing.JFrame {
 
     private void buttonDeleteInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteInfoActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel dtm = (DefaultTableModel) tableDisplay.getModel();
+        if(tableDisplay.getSelectedRowCount() == 1) {
+            if(labelTableDisplay.getText() == "Doctors") {
+                int id = Integer.parseInt(dtm.getValueAt(tableDisplay.getSelectedRow(), 0).toString());
+                for (HashMap.Entry<String, Doctor> set : doctorMap.entrySet()) {
+                    if(set.getValue().getDoctorID() == id) {
+                        doctorMap.remove(set.getKey());
+                        dtm.removeRow(tableDisplay.getSelectedRow());
+                    }
+                }
+            } 
+            else if(labelTableDisplay.getText() == "Patients") {
+                int id = Integer.parseInt(dtm.getValueAt(tableDisplay.getSelectedRow(), 0).toString());
+                for (HashMap.Entry<String, Patient> set : patientMap.entrySet()) {
+                    if(set.getValue().getPatientID()== id){
+                        patientMap.remove(set.getKey());
+                        dtm.removeRow(tableDisplay.getSelectedRow());
+                    }
+                }
+            }
+            else if(labelTableDisplay.getText() == "MANAGE HOSPITALS") {
+                String name = dtm.getValueAt(tableDisplay.getSelectedRow(), 0).toString();
+                hospitalMap.remove(name);
+                dtm.removeRow(tableDisplay.getSelectedRow());
+                for (HashMap.Entry<String, Doctor> set1 : doctorMap.entrySet()) {
+                    if(set1.getValue().getHospitalName().equals(name)) {
+                        doctorMap.remove(set1.getKey());
+                    }
+                }
+            }
+        }
+        else {
+            if(tableDisplay.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "The table is empty or select a row.");
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Select one row at a time.");
+            }
+        }
     }//GEN-LAST:event_buttonDeleteInfoActionPerformed
+
+    private void buttonEditInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditInfoActionPerformed
+        // TODO add your handling code here:
+        
+        
+        if(labelTableDisplay.getText().equals("Doctors"))
+        {
+            DefaultTableModel dtm = (DefaultTableModel) tableDisplay.getModel();
+            CreateDoctor cd = new CreateDoctor();
+            if(tableDisplay.getSelectedRowCount() == 1)
+            {
+                int id = Integer.parseInt(tableDisplay.getValueAt(tableDisplay.getSelectedRow(), 0).toString());
+                for (HashMap.Entry<String, Doctor> set : doctorMap.entrySet()) 
+                {
+                    if(set.getValue().getDoctorID()== id) 
+                    {
+                        cd.show();
+                        cd.textDocFName.setText(set.getValue().getFirstName());
+                        cd.textDocUserName.setText(set.getValue().getUserName());
+                        cd.textDocAge.setText(Integer.toString(set.getValue().getAge()));
+            //          cd.jcGender.setSelectedItem(doctors.get(id).getGender());
+                        cd.textDocLName.setText(set.getValue().getLastName());
+                        cd.textDocHouse.setText(set.getValue().getHouseName());
+                        //cd.tfDocID.setText(Integer.toString(id));
+                        cd.textPin.setText(Integer.toString(set.getValue().getPinCode()));
+                        cd.show();
+                    }
+                }
+            }
+        }
+        
+        if(labelTableDisplay.getText().equals("MANAGE HOSPITALS"))
+        {
+            DefaultTableModel dtm = (DefaultTableModel) tableDisplay.getModel();
+            int id = Integer.parseInt(tableDisplay.getValueAt(tableDisplay.getSelectedRow(), 0).toString());
+
+            if(tableDisplay.getSelectedRowCount() == 1)
+            {
+                CreateHospital ch = new CreateHospital();
+                for(int i=0;i<cityList.size();i++) 
+                {
+                   ch.comboCity.addItem(cityList.get(i));
+                }
+                ch.show();
+                ch.textHospitalName.setText(hospitalMap.get(id).getHospitalName());
+                ch.textPinHospital.setText(Integer.toString(hospitalMap.get(id).getPinCode()));
+                ch.txtHospitalID.setText(Integer.toString(hospitalMap.get(id).getHospitalID()));
+            }
+        }
+    }//GEN-LAST:event_buttonEditInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,9 +347,9 @@ public class ViewInfo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCreateTable;
-    private javax.swing.JButton buttonDeleteInfo;
+    public javax.swing.JButton buttonDeleteInfo;
+    public javax.swing.JButton buttonEditInfo;
     private javax.swing.JButton buttonTableBack;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

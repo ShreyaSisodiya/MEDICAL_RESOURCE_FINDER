@@ -41,7 +41,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
     public static String comName = "";
     public static String docUserName = "";
     public static String docName = "";
-
+    public static String patUserName = "";
 
     public static void main(String[] args) 
     {
@@ -50,7 +50,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         cityList.add("Boston");
 
         User Shreya = new User("Shreya", "admin", "System Admin");
-        User Krishnna = new User("Krishnna", "patient","Patient" );
+        User Krishnna = new User("Krishnna", "patient","Patient");
         User Victoria = new User("Victoria", "admin", "Community Admin");
         User Grey = new User("Grey", "doctor", "Doctor");
         User Fin = new User("Fin", "admin", "Community Admin");
@@ -60,7 +60,9 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         User Lana = new User("Lana", "doctor", "Doctor");
         User Ariana = new User("Ariana", "doctor", "Doctor");
         User Billie = new User("Billie", "doctor", "Doctor");
-        
+        User Bob = new User("Bob", "patient", "Patient"); 
+        // User Bob = new User("Bob", "patient", "Patient"); 
+          
         userMap.put(Krishnna.getUserName(), Krishnna);
         userMap.put(Shreya.getUserName(), Shreya);
         userMap.put(Victoria.getUserName(), Victoria);
@@ -72,7 +74,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         userMap.put(Lana.getUserName(), Lana);
         userMap.put(Ariana.getUserName(), Ariana);
         userMap.put(Billie.getUserName(), Billie);
-        
+        userMap.put(Bob.getUserName(), Bob);
         
         Community Lenox = new Community("Lenox Hill", 00001,"New York");
         Community Yorkville = new Community("Yorkville", 00002, "New York");
@@ -94,10 +96,10 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         doctorMap.put(D2.getFirstName(), D2);
         doctorMap.put(D3.getFirstName(), D3);
         
-        Hospital HA = new Hospital("A", "Lenox Hill", 00001, "New York");
-        Hospital HB = new Hospital("B", "Yorkville", 00002, "New York");
-        Hospital HC = new Hospital("C", "Beacon Hill", 00003, "Boston");
-        Hospital HD = new Hospital("D", "Cambridge", 00004, "Boston");
+        Hospital HA = new Hospital("A",1, "Lenox Hill", 00001, "New York");
+        Hospital HB = new Hospital("B",2, "Yorkville", 00002, "New York");
+        Hospital HC = new Hospital("C",3, "Beacon Hill", 00003, "Boston");
+        Hospital HD = new Hospital("D", 4,"Cambridge", 00004, "Boston");
             
         hospitalMap.put(HA.getHospitalName(), HA);
         hospitalMap.put(HB.getHospitalName(), HB);

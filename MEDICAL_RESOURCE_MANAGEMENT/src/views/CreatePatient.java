@@ -291,6 +291,8 @@ public class CreatePatient extends javax.swing.JFrame {
         this.hide();
         LoginForm logform = new LoginForm();
         logform.show();
+//        ViewSystemAdmin vsa = new ViewSystemAdmin();
+//        vsa.show();
     }//GEN-LAST:event_buttonSavePatientActionPerformed
 
     private void buttonBackPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackPatientActionPerformed
@@ -379,12 +381,12 @@ public class CreatePatient extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField passwordFieldPatient;
     private javax.swing.JTextField textHospitalName;
-    private javax.swing.JTextField textPatientAge;
-    private javax.swing.JTextField textPatientFirstName;
-    private javax.swing.JTextField textPatientHouse;
+    public javax.swing.JTextField textPatientAge;
+    public javax.swing.JTextField textPatientFirstName;
+    public javax.swing.JTextField textPatientHouse;
     private javax.swing.JTextField textPatientID;
-    private javax.swing.JTextField textPatientLastName;
-    private javax.swing.JTextField textPatientUserName;
-    private javax.swing.JTextField textPinPatient;
+    public javax.swing.JTextField textPatientLastName;
+    public javax.swing.JTextField textPatientUserName;
+    public javax.swing.JTextField textPinPatient;
     // End of variables declaration//GEN-END:variables
 }

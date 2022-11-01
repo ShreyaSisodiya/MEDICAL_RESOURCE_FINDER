@@ -346,11 +346,11 @@ public class CreateDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField pwdDoctor;
-    private javax.swing.JTextField textDocAge;
-    private javax.swing.JTextField textDocFName;
-    private javax.swing.JTextField textDocHouse;
-    private javax.swing.JTextField textDocLName;
-    private javax.swing.JTextField textDocUserName;
-    private javax.swing.JTextField textPin;
+    public javax.swing.JTextField textDocAge;
+    public javax.swing.JTextField textDocFName;
+    public javax.swing.JTextField textDocHouse;
+    public javax.swing.JTextField textDocLName;
+    public javax.swing.JTextField textDocUserName;
+    public javax.swing.JTextField textPin;
     // End of variables declaration//GEN-END:variables
 }

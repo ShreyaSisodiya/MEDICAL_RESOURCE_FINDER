@@ -17,9 +17,10 @@ public class Encounter extends VitalSigns
     private Date date;
     private int patientID;
     private int doctorID;
+    private String hospitalName;
 
-    public Encounter(String patientName, String doctorName, Date date, int patientID, int doctorID, float bloodPressure, float heartRate, 
-            float temperature) 
+    public Encounter(String patientName, String doctorName, Date date, int patientID, int doctorID, String hospitalName, float bloodPressure, 
+            float heartRate, float temperature) 
     {
         super(bloodPressure, heartRate, temperature);
         this.patientName = patientName;
@@ -27,6 +28,7 @@ public class Encounter extends VitalSigns
         this.date = date;
         this.patientID = patientID;
         this.doctorID = doctorID;
+        this.hospitalName = hospitalName;
     }
 
     public String getPatientName() {
@@ -67,6 +69,14 @@ public class Encounter extends VitalSigns
 
     public void setDoctorID(int doctorID) {
         this.doctorID = doctorID;
+    }
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
     }
     
 }

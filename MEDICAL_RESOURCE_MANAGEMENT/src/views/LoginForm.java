@@ -4,6 +4,7 @@
  */
 package views;
 import javax.swing.JOptionPane;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.cityList;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.communityAdminMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.userMap;
 /**
@@ -155,6 +156,7 @@ public class LoginForm extends javax.swing.JFrame {
                 {
                     this.hide();
                     ViewPatient vp = new ViewPatient();
+                    vp.getPatName(uName);
                     vp.show();
                 }
                 else if (userMap.get(uName).getUserType().equals("Doctor"))
@@ -169,9 +171,8 @@ public class LoginForm extends javax.swing.JFrame {
                 {
                     this.hide();
                     ViewCommunityAdmin vca = new ViewCommunityAdmin();
-                    vca.show();
                     vca.getComm(communityAdminMap.get(uName).getCommName(), communityAdminMap.get(uName).getCityName());
-                    this.hide();  
+                    vca.show();
                 }
         }
         else
@@ -184,7 +185,12 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.hide();
         CreatePatient cp = new CreatePatient();
+        cp.comboCity.removeAll();
+            for(int i=0;i<cityList.size();i++) {
+                cp.comboCity.addItem(cityList.get(i));
+            }
         cp.show();
+    
     }//GEN-LAST:event_buttonRegisterActionPerformed
 
     /**
