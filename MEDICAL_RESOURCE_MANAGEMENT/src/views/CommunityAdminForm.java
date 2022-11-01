@@ -256,7 +256,7 @@ public class CommunityAdminForm extends javax.swing.JFrame {
         for (HashMap.Entry<String, Community> set : communityMap.entrySet())
         {
             String cityName = set.getValue().getCityName();
-            if(comboCommunity.getSelectedItem().toString().equals(cityName)) 
+            if(comboCity.getSelectedItem().toString().equals(cityName)) 
             {
                 comboCommunity.addItem(set.getValue().getCommunityName());
             }

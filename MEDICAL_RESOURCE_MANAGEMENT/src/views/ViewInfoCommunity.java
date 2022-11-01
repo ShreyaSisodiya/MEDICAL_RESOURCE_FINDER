@@ -140,6 +140,13 @@ public class ViewInfoCommunity extends javax.swing.JFrame {
 //        {
 //            buttonCreateTable.setVisible(false);
 //        }
+        else if (labelTableDisplay.getText() == "COMMUNITY ADMIN")
+        {
+            this.hide();
+            CommunityAdminForm caf = new CommunityAdminForm();
+            
+             caf.show();
+        }
     }//GEN-LAST:event_buttonCreateTableActionPerformed
 
     private void buttonDeleteCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteCommActionPerformed

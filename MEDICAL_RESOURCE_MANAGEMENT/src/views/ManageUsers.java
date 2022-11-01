@@ -167,7 +167,7 @@ public class ManageUsers extends javax.swing.JFrame {
     private void buttonCommAdminTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommAdminTypeActionPerformed
         // TODO add your handling code here:
         ViewInfo view = new ViewInfo();
-        view.labelTableDisplay.setText("Community Admin");
+        view.labelTableDisplay.setText("COMMUNITY ADMIN");
         String[] columnNames = {"Name", "Community", "City"};
         String[][] rows = new String[communityAdminMap.size()][3];
 

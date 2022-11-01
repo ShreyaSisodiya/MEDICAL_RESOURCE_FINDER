@@ -7,6 +7,7 @@ package views;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 import medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT;
+import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.commName;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.doctorMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.hospitalMap;
 import static medical_resource_management.MEDICAL_RESOURCE_MANAGEMENT.houseMap;
@@ -27,14 +28,14 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
      */
     public ViewCommunityAdmin() {
         initComponents();
-        if(MEDICAL_RESOURCE_MANAGEMENT.comName.length() > 0) {
-            jLabel1.setText(MEDICAL_RESOURCE_MANAGEMENT.comName);
+        if(MEDICAL_RESOURCE_MANAGEMENT.commName.length() > 0) {
+            jLabel1.setText(MEDICAL_RESOURCE_MANAGEMENT.commName);
     }
     }
     public void getComm(String communityName, String cityName)
     { 
-        jLabel1.setText("Welcome " +communityName);
-        MEDICAL_RESOURCE_MANAGEMENT.comName = communityName;
+        jLabel1.setText("Welcome " + communityName);
+        MEDICAL_RESOURCE_MANAGEMENT.commName = communityName;
         MEDICAL_RESOURCE_MANAGEMENT.citiesName = cityName;
     }
     
@@ -155,16 +156,20 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewInfoCommunity view = new ViewInfoCommunity();
         view.labelTableDisplay.setText(buttonMH.getText());
-        String[] columnNames = {"Hospital ID","HospitalName", "City", "Community Name"};
+        String[] columnNames = {"Hospital ID", "HospitalName", "City", "Community Name"};
         String[][] rows = new String[hospitalMap.size()][4];
         int i = 0;
-        for(HashMap.Entry<Integer, Hospital>set:hospitalMap.entrySet()){
-            rows[i][0] = Integer.toString(set.getValue().getHospitalID());
-            rows[i][1] = set.getValue().getHospitalName();
-            rows[i][2] = set.getValue().getCityName();
-            rows[i][3] = set.getValue().getCommunityName();
-            
-            i++;
+        for(HashMap.Entry<Integer, Hospital>set:hospitalMap.entrySet())
+        {
+            if(set.getValue().getCommunityName().equals(commName))
+            {   
+                
+                rows[i][0] = Integer.toString(set.getValue().getHospitalID());
+                rows[i][1] = set.getValue().getHospitalName();
+                rows[i][2] = set.getValue().getCityName();
+                rows[i][3] = set.getValue().getCommunityName();
+                i++;        
+            }        
         }
         
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
@@ -180,7 +185,8 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         String[] columnNames = {"Patient Name", "Community", "City"};
         String[][] rows = new String[patientMap.size()][3];
         int i = 0;
-        for (HashMap.Entry<String, Patient> set : patientMap.entrySet()) {
+        for (HashMap.Entry<String, Patient> set : patientMap.entrySet())
+        {
             //rows[i][0] = set.getValue().getPatientID();
             rows[i][0] = set.getValue().getFirstName();
             rows[i][1] = set.getValue().getCommunityName();
@@ -198,13 +204,16 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
     private void buttonManageHousesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageHousesActionPerformed
         // TODO add your handling code here:
         ViewInfoCommunity view = new ViewInfoCommunity();
+        
         view.labelTableDisplay.setText(buttonManageHouses.getText());
+        
         String[] columnNames = {"Houses", "Pin Code"};
+        
         String[][] rows = new String[houseMap.size()][2];
         int i = 0;
         for(HashMap.Entry<String, House> set : houseMap.entrySet())
         {
-            if(set.getValue().getCommunityName().equals(view.labelTableDisplay.getText()))
+            if(set.getValue().getCommunityName().equals(commName))
             {
                 rows[i][0] = set.getValue().getHouseName();
                 int x = set.getValue().getPinCode();
@@ -233,12 +242,15 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         String[][] rows = new String[doctorMap.size()][4];
         int i = 0;
         for (HashMap.Entry<String, Doctor> set : doctorMap.entrySet()) {
+            if(set.getValue().getCommunityName().equals(commName))
+            {
             //rows[i][0] = set.getValue().getPatientID();
             rows[i][0] = set.getValue().getFirstName();
             rows[i][1] = set.getValue().getHospitalName();
             rows[i][2] = set.getValue().getCommunityName();
             rows[i][3] = set.getValue().getCityName();
             i++;
+            }
         }
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
         view.tableDisplayCommunity.setModel(dtm);

@@ -147,7 +147,7 @@ public class CreateHospitalCommunity extends javax.swing.JFrame {
     private void buttonSaveHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveHospitalActionPerformed
         // TODO add your handling code here:
         Hospital h = new Hospital(textHospitalName.getText(), Integer.parseInt(textHospID.getText()),
-                MEDICAL_RESOURCE_MANAGEMENT.comName, Integer.parseInt(textPinHospital.getText()),
+                MEDICAL_RESOURCE_MANAGEMENT.commName, Integer.parseInt(textPinHospital.getText()),
                                   MEDICAL_RESOURCE_MANAGEMENT.citiesName);
         hospitalMap.put(h.getHospitalID(), h);
         this.hide();

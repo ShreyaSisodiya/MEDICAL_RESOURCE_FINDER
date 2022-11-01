@@ -39,7 +39,7 @@ public class MEDICAL_RESOURCE_MANAGEMENT
     public static ArrayList<Encounter> encounters = new ArrayList<Encounter>();
     
     public static String citiesName = "";
-    public static String comName = "";
+    public static String commName = "";
     public static String docUserName = "";
     public static String docName = "";
     public static String patUserName = "";
@@ -64,7 +64,6 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         User Bob = new User("Bob", "patient", "Patient"); 
         User Nupoor = new User("Nupoor", "patient", "Patient");
         User Sarvesh = new User("Sarvesh", "patient", "Patient");
-        // User Bob = new User("Bob", "patient", "Patient"); 
           
         userMap.put(Krishnna.getUserName(), Krishnna);
         userMap.put(Shreya.getUserName(), Shreya);
@@ -87,14 +86,14 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         Community BeaconHill = new Community("Beacon Hill",00003,"Boston");
         Community Cambridge = new Community("Cambridge",00004,"Boston");
         
-         communityMap.put(Lenox.getCommunityName(), Lenox);
-         communityMap.put(Yorkville.getCommunityName(), Yorkville);
-         communityMap.put(BeaconHill.getCommunityName(), BeaconHill);
-         communityMap.put(Cambridge.getCommunityName(), Cambridge);
+        communityMap.put(Lenox.getCommunityName(), Lenox);
+        communityMap.put(Yorkville.getCommunityName(), Yorkville);
+        communityMap.put(BeaconHill.getCommunityName(), BeaconHill);
+        communityMap.put(Cambridge.getCommunityName(), Cambridge);
         
-        Doctor D1 = new Doctor("A", 1, "TaySwift", "Taylor", "Swift", "Female", 30, "House A", "Lenox", 00001, "New York");
-        Doctor D2 = new Doctor("B", 2, "LDR", "Lana", "del Rey", "Female", 30, "House B", "Yorkville", 00002, "New York");
-        Doctor D3 = new Doctor("C", 3, "Ari", "Ariana", "Grande", "Female", 30, "House C", "Beacon Hill", 00003, "Boston");
+        Doctor D1 = new Doctor("A", 1, "Taylor", "Taylor", "Swift", "Female", 30, "House A", "Lenox Hill", 00001, "New York");
+        Doctor D2 = new Doctor("B", 2, "Lana", "Lana", "del Rey", "Female", 30, "House B", "Yorkville", 00002, "New York");
+        Doctor D3 = new Doctor("C", 3, "Ariana", "Ariana", "Grande", "Female", 30, "House C", "Beacon Hill", 00003, "Boston");
         Doctor D4 = new Doctor("D", 4, "Billie", "Billie", "Ellish", "Female", 30, "House D", "Cambridge", 00004, "Boston");
         
         doctorMap.put(D4.getUserName(), D4);
@@ -102,20 +101,20 @@ public class MEDICAL_RESOURCE_MANAGEMENT
         doctorMap.put(D2.getUserName(), D2);
         doctorMap.put(D3.getUserName(), D3);
         
-        Hospital HA = new Hospital("D",1, "Lenox Hill", 00001, "New York");
+        Hospital HD = new Hospital("D",1, "Lenox Hill", 00001, "New York");
         Hospital HB = new Hospital("B",2, "Yorkville", 00002, "New York");
         Hospital HC = new Hospital("C",3, "Beacon Hill", 00003, "Boston");
-        Hospital HD = new Hospital("A", 4,"Cambridge", 00004, "Boston");
+        Hospital HA = new Hospital("A", 4,"Cambridge", 00004, "Boston");
             
         hospitalMap.put(HA.getHospitalID(), HA);
         hospitalMap.put(HB.getHospitalID(), HB);
         hospitalMap.put(HC.getHospitalID(), HC);
         hospitalMap.put(HD.getHospitalID(), HD);
         
-        CommunityAdmin CA = new CommunityAdmin("Victoria", "Victoria", "Female", "Cambridge", 00004,"Boston");
-        CommunityAdmin CA2 = new CommunityAdmin("Fin", "Fin", "Male", "Beacon Hill", 00003,"Bsoton");
-        CommunityAdmin CA3 = new CommunityAdmin("Charlie", "Charlie", "Female", "Yorkville", 00002,"New York");
-        CommunityAdmin CA4 = new CommunityAdmin("Bessa", "Bessa", "Female", "Lenox Hill", 00001,"New York");
+        CommunityAdmin CA = new CommunityAdmin("Victoria", "Cambridge", "Female", "Cambridge", 00004,"Boston");
+        CommunityAdmin CA2 = new CommunityAdmin("Fin", "Beacon Hill", "Male", "Beacon Hill", 00003,"Bsoton");
+        CommunityAdmin CA3 = new CommunityAdmin("Charlie", "Yorkville", "Female", "Yorkville", 00002,"New York");
+        CommunityAdmin CA4 = new CommunityAdmin("Bessa", "Lenox Hill", "Female", "Lenox Hill", 00001,"New York");
    
         communityAdminMap.put(CA.getUserName(), CA);
         communityAdminMap.put(CA2.getUserName(), CA2);

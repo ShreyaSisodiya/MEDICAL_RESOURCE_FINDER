@@ -207,12 +207,14 @@ public class ViewInfo extends javax.swing.JFrame {
             }
             cdoc.show();
         }
-        else if(labelTableDisplay.getText() == "Community Admin"){
+        else if(labelTableDisplay.getText() == "COMMUNITY ADMIN"){
+            
+            System.out.println("here");
             this.hide();
             CommunityAdminForm caf = new CommunityAdminForm();
-            for(int i=0;i<cityList.size();i++) {
-                caf.comboCity.addItem(cityList.get(i));
-            }
+                for(int i=0;i < cityList.size();i++) {
+                    caf.comboCity.addItem(cityList.get(i));
+                }
             caf.show();
         }
     }//GEN-LAST:event_buttonCreateTableActionPerformed

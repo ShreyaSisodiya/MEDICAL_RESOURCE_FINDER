@@ -124,8 +124,7 @@ public class ViewDoctor extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewInfoDoctor vid = new ViewInfoDoctor();
         vid.jLabel1.setText("ENCOUNTERS");
-        //System.out.println(docUserName);
-        //System.out.println(doctorMap.get(docUserName).getCityName());
+
         int id = doctorMap.get(docUserName).getDoctorID();
         
         DefaultTableModel dtm = (DefaultTableModel) vid.tableDoctor.getModel();
