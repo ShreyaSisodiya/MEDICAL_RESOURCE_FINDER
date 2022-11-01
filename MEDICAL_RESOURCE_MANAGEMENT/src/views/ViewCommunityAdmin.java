@@ -155,13 +155,14 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewInfoCommunity view = new ViewInfoCommunity();
         view.labelTableDisplay.setText(buttonMH.getText());
-        String[] columnNames = {"HospitalName", "City", "Community Name"};
-        String[][] rows = new String[hospitalMap.size()][3];
+        String[] columnNames = {"Hospital ID","HospitalName", "City", "Community Name"};
+        String[][] rows = new String[hospitalMap.size()][4];
         int i = 0;
         for(HashMap.Entry<String, Hospital>set:hospitalMap.entrySet()){
-            rows[i][0] = set.getValue().getHospitalName();
-            rows[i][1] = set.getValue().getCityName();
-            rows[i][2] = set.getValue().getCommunityName();
+            rows[i][0] = Integer.toString(set.getValue().getHospitalID());
+            rows[i][1] = set.getValue().getHospitalName();
+            rows[i][2] = set.getValue().getCityName();
+            rows[i][3] = set.getValue().getCommunityName();
             
             i++;
         }
@@ -202,12 +203,12 @@ public class ViewCommunityAdmin extends javax.swing.JFrame {
         int i = 0;
         for(HashMap.Entry<String, House> set : houseMap.entrySet())
         {
-                if(set.getValue().getCommunityName().equals(view.labelTableDisplay.getText()))
+            if(set.getValue().getCommunityName().equals(view.labelTableDisplay.getText()))
             {
-            rows[i][0] = set.getValue().getHouseName();
-            int x = set.getValue().getPinCode();
-            rows[i][0] = Integer.toString(x);           
-            i++;
+                rows[i][0] = set.getValue().getHouseName();
+                int x = set.getValue().getPinCode();
+                rows[i][1] = Integer.toString(x);           
+                i++;
             }
         }
         DefaultTableModel dtm = new DefaultTableModel (rows, columnNames);
